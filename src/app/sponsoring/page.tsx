@@ -180,13 +180,6 @@ export default function SponsoringPage() {
         <div className="flex items-center gap-6">
           <a href="#formulas" className="hidden md:block text-sm font-semibold text-[#8a9abb] hover:text-[#c9a84c] transition-colors">Formules</a>
           <a href="#contact" className="hidden md:block text-sm font-semibold text-[#8a9abb] hover:text-[#c9a84c] transition-colors">Contact</a>
-          <a
-            href="DS-JNJD.pdf"
-            download
-            className="text-xs font-outfit font-bold uppercase tracking-widest px-5 py-2 border border-[#c9a84c] text-[#c9a84c] rounded hover:bg-[#c9a84c] hover:text-[#040810] transition-all flex items-center gap-2"
-          >
-            <Download className="w-3.5 h-3.5" /> PDF
-          </a>
         </div>
       </nav>
 
@@ -522,12 +515,9 @@ export default function SponsoringPage() {
             ))}
           </div>
 
-          <motion.div {...FADE_DELAY(0.2)} className="text-center">
-            <p className="text-[#8a9abb] text-sm mb-2">Ou écrivez-nous à <a href="mailto:cit.inpt@gmail.com" className="text-[#c9a84c] hover:underline">cit.inpt@gmail.com</a></p>
-            <p className="text-[#8a9abb] italic text-sm mb-6">Partagez le dossier de sponsoring avec votre équipe</p>
-            <a href="DS-JNJD.pdf" download className="btn-primary">
-              <Download className="w-4 h-4" /> Télécharger le Dossier PDF
-            </a>
+          <motion.div {...FADE_DELAY(0.2)} className="text-center pt-8">
+            <p className="text-[#8a9abb] text-sm mb-2">Pour plus de détails, contactez-nous :</p>
+            <a href="mailto:cit.inpt@gmail.com" className="text-xl font-bold text-[#c9a84c] hover:underline">cit.inpt@gmail.com</a>
           </motion.div>
         </div>
       </section>
