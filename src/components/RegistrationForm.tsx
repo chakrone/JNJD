@@ -375,12 +375,14 @@ export default function RegistrationForm() {
       )}
 
       {/* Form Area */}
-      <div className="glass-panel p-5 sm:p-8 md:p-10 rounded-2xl relative overflow-hidden">
+      <div className="glass-panel p-5 sm:p-8 md:p-10 rounded-2xl relative">
         {/* Decorative Grid */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0ibm9uZSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0icmdiYSg4LCAxNSwgMzEsIDAuMykiPjwvY2lyY2xlPgo8L3N2Zz4=')] opacity-30 pointer-events-none mix-blend-screen" />
-        
+        <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none" aria-hidden>
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0ibm9uZSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0icmdiYSg4LCAxNSwgMzEsIDAuMykiPjwvY2lyY2xlPgo8L3N2Zz4=')] opacity-20" />
+        </div>
+
         <div className="relative z-10">
-          <AnimatePresence mode="wait">
+          <AnimatePresence>
             {isSuccess ? renderSuccess() : step === 1 ? renderStepOne() : renderStepTwo()}
           </AnimatePresence>
         </div>
