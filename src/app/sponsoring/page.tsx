@@ -171,13 +171,13 @@ export default function SponsoringPage() {
   return (
     <main className="min-h-screen text-[#f4f0e8] bg-[#040810] overflow-x-hidden">
       {/* NAV */}
-      <nav className="fixed top-0 inset-x-0 z-50 flex items-center justify-between h-16 px-6 lg:px-12 bg-[#040810]/85 backdrop-blur-xl border-b border-[rgba(201,168,76,0.18)]">
+      <nav className="fixed top-0 inset-x-0 z-50 flex items-center justify-center sm:justify-between h-16 px-6 lg:px-12 bg-[#040810]/85 backdrop-blur-xl border-b border-[rgba(201,168,76,0.18)]">
         <a href="#hero" className="flex items-center gap-3 no-underline">
           <Image src="/assets/Logo BW 2.png" alt="JNJD" width={32} height={32} className="opacity-90" />
           <span className="w-px h-6 bg-[rgba(201,168,76,0.18)] hidden sm:block"></span>
           <span className="text-xs font-semibold text-[#8a9abb] tracking-widest hidden sm:block">Dossier Sponsoring · 20ème Édition</span>
         </a>
-        <div className="flex items-center gap-6">
+        <div className="hidden sm:flex items-center gap-6">
           <a href="#formulas" className="hidden md:block text-sm font-semibold text-[#8a9abb] hover:text-[#c9a84c] transition-colors">Formules</a>
           <a href="#contact" className="hidden md:block text-sm font-semibold text-[#8a9abb] hover:text-[#c9a84c] transition-colors">Contact</a>
           <a
