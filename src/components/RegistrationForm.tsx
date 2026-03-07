@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Copy, CheckCircle2, ChevronRight, ChevronLeft, Upload, FileText, Download } from "lucide-react";
 
@@ -47,6 +47,16 @@ export default function RegistrationForm() {
       setIsSuccess(true);
     }, 1500);
   };
+
+  // Lock body scroll when success overlay is active
+  useEffect(() => {
+    if (isSuccess) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isSuccess]);
 
   const renderStepOne = () => (
     <motion.div
