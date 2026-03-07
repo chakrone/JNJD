@@ -316,35 +316,42 @@ export default function RegistrationForm() {
 
   const renderSuccess = () => (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      className="fixed inset-0 z-[100] bg-[#03060f] flex flex-col items-center justify-center p-6 text-center overflow-y-auto"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="fixed inset-0 z-[100] bg-[#03060f] overflow-y-auto"
     >
-      <div className="w-20 h-20 bg-gold/10 border-2 border-gold rounded-full flex items-center justify-center mx-auto mb-6">
-        <CheckCircle2 className="w-10 h-10 text-gold" />
-      </div>
-      <h2 className="text-3xl font-outfit font-bold text-white mb-4">Registration Received!</h2>
-      <p className="text-[#667799] mb-8 max-w-md mx-auto line-height-relaxed">
-        Your team <strong className="text-white">{formData.teamName || 'Details'}</strong> has been registered for the 20th edition of JNJD. We will contact the captain shortly with further instructions.
-      </p>
-      
-      <div className="bg-gold/10 border border-gold/30 p-6 rounded-xl max-w-md mx-auto mb-8">
-        <h4 className="text-gold font-bold mb-2 uppercase tracking-wider text-sm flex items-center justify-center gap-2">
-          Payment Information
-        </h4>
-        <p className="text-[#eeeae0]">
-          Remember, there is a participation fee of <strong>180 MAD</strong> per team.
-        </p>
-        <p className="text-sm text-[#667799] mt-2">
-          Payment can be made via wire transfer or on-site on the day of the competition.
-        </p>
-      </div>
+      <div className="min-h-full flex flex-col items-center justify-center py-16 px-5 text-center">
+        {/* Icon */}
+        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gold/10 border-2 border-gold rounded-full flex items-center justify-center mx-auto mb-5">
+          <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10 text-gold" />
+        </div>
 
-      <button onClick={() => window.location.reload()} className="btn-outline">
-        Register Another Team
-      </button>
+        {/* Title */}
+        <h2 className="text-2xl sm:text-3xl font-outfit font-bold text-white mb-3">Registration Received!</h2>
+        <p className="text-[#667799] mb-8 max-w-sm sm:max-w-md mx-auto text-sm sm:text-base leading-relaxed">
+          Your team <strong className="text-white">{formData.teamName || 'Details'}</strong> has been registered for the 20th edition of JNJD. We will contact the captain shortly with further instructions.
+        </p>
+
+        {/* Payment box */}
+        <div className="bg-gold/10 border border-gold/30 p-5 rounded-xl w-full max-w-sm sm:max-w-md mx-auto mb-8 text-left">
+          <h4 className="text-gold font-bold mb-2 uppercase tracking-wider text-xs sm:text-sm flex items-center gap-2">
+            Payment Information
+          </h4>
+          <p className="text-[#eeeae0] text-sm">
+            There is a participation fee of <strong>180 MAD</strong> per team.
+          </p>
+          <p className="text-xs text-[#667799] mt-2">
+            Payment can be made via wire transfer or on-site on the day of the competition.
+          </p>
+        </div>
+
+        <button onClick={() => window.location.reload()} className="btn-outline w-full max-w-xs">
+          Register Another Team
+        </button>
+      </div>
     </motion.div>
   );
+
 
   return (
     <div className="w-full max-w-4xl mx-auto">
