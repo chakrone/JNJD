@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Copy, CheckCircle2, ChevronRight, ChevronLeft, Upload, FileText, Download } from "lucide-react";
 
@@ -48,27 +49,26 @@ export default function RegistrationForm() {
     }, 1500);
   };
 
-  // Lock body scroll when success overlay is active
-  // iOS Safari needs overflow:hidden on BOTH <html> and <body> to prevent scroll
+  // iOS-safe scroll lock: freezes both <html> and <body>
   useEffect(() => {
     if (isSuccess) {
-      const scrollY = window.scrollY;
-      document.body.style.overflow = "hidden";
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = "100%";
       document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+    } else {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
     }
     return () => {
-      const scrollY = document.body.style.top;
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.width = "";
       document.documentElement.style.overflow = "";
-      if (scrollY) window.scrollTo(0, -parseInt(scrollY || "0"));
+      document.body.style.overflow = "";
     };
   }, [isSuccess]);
+
+  // Portal target — only available client-side
+  const portalRef = useRef<Element | null>(null);
+  useEffect(() => {
+    portalRef.current = document.body;
+  }, []);
 
   const renderStepOne = () => (
     <motion.div
@@ -326,13 +326,30 @@ export default function RegistrationForm() {
     </motion.div>
   );
 
-  const renderSuccess = () => (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="fixed inset-0 z-[100] bg-[#03060f] overflow-y-auto"
+  const successContent = (
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 9999,
+        background: "#03060f",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        overflowY: "auto",
+        WebkitOverflowScrolling: "touch",
+        padding: "64px 20px",
+        textAlign: "center",
+        boxSizing: "border-box",
+      }}
     >
-      <div className="min-h-full flex flex-col items-center justify-center py-16 px-5 text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        style={{ width: "100%", maxWidth: 480 }}
+      >
         {/* Icon */}
         <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gold/10 border-2 border-gold rounded-full flex items-center justify-center mx-auto mb-5">
           <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10 text-gold" />
@@ -340,28 +357,25 @@ export default function RegistrationForm() {
 
         {/* Title */}
         <h2 className="text-2xl sm:text-3xl font-outfit font-bold text-white mb-3">Registration Received!</h2>
-        <p className="text-[#667799] mb-8 max-w-sm sm:max-w-md mx-auto text-sm sm:text-base leading-relaxed">
-          Your team <strong className="text-white">{formData.teamName || 'Details'}</strong> has been registered for the 20th edition of JNJD. We will contact the captain shortly with further instructions.
+        <p className="text-[#667799] mb-8 text-sm sm:text-base leading-relaxed">
+          Your team <strong className="text-white">{formData.teamName || 'Details'}</strong> has been registered for the 20th edition of JNJD. We will contact the captain shortly.
         </p>
 
         {/* Payment box */}
-        <div className="bg-gold/10 border border-gold/30 p-5 rounded-xl w-full max-w-sm sm:max-w-md mx-auto mb-8 text-left">
-          <h4 className="text-gold font-bold mb-2 uppercase tracking-wider text-xs sm:text-sm flex items-center gap-2">
-            Payment Information
-          </h4>
-          <p className="text-[#eeeae0] text-sm">
-            There is a participation fee of <strong>180 MAD</strong> per team.
-          </p>
-          <p className="text-xs text-[#667799] mt-2">
-            Payment can be made via wire transfer or on-site on the day of the competition.
-          </p>
+        <div className="bg-gold/10 border border-gold/30 p-5 rounded-xl mb-8 text-left">
+          <h4 className="text-gold font-bold mb-2 uppercase tracking-wider text-xs sm:text-sm">Payment Information</h4>
+          <p className="text-[#eeeae0] text-sm">Participation fee: <strong>180 MAD</strong> per team.</p>
+          <p className="text-xs text-[#667799] mt-2">Payment via wire transfer or on-site on the day.</p>
         </div>
 
-        <button onClick={() => window.location.reload()} className="btn-outline w-full max-w-xs">
+        <button
+          onClick={() => window.location.reload()}
+          className="btn-outline w-full"
+        >
           Register Another Team
         </button>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 
 
@@ -395,10 +409,13 @@ export default function RegistrationForm() {
 
         <div className="relative z-10">
           <AnimatePresence>
-            {isSuccess ? renderSuccess() : step === 1 ? renderStepOne() : renderStepTwo()}
+            {step === 1 ? renderStepOne() : renderStepTwo()}
           </AnimatePresence>
         </div>
       </div>
+
+      {/* Success overlay rendered into document.body via portal to bypass iOS scroll issues */}
+      {isSuccess && portalRef.current && createPortal(successContent, portalRef.current)}
     </div>
   );
 }
