@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JNJD 2026 — Dossier Sponsoring · 20ème Édition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy-deep:  #040810;
+      --navy:       #080f1f;
+      --navy-mid:   #0d1628;
+      --navy-light: #162040;
+      --navy-muted: #1e2d50;
+      --gold:       #c9a84c;
+      --gold-light: #e8c96a;
+      --gold-pale:  #f5e4a8;
+      --gold-dim:   #7a6228;
+      --white:      #f4f0e8;
+      --muted:      #8a9abb;
+      --border:     rgba(201,168,76,0.18);
+      --glow:       rgba(201,168,76,0.12);
+      --radius:     6px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--navy-deep);
+      color: var(--white);
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.35;
+    }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--navy-deep); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 64px;
+      background: rgba(4,8,16,0.85);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: var(--gold); }
+    .nav-div { width: 1px; height: 26px; background: var(--border); }
+    .nav-edition { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500; color: var(--muted); letter-spacing: 0.04em; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.03em; color: var(--muted); text-decoration: none; transition: color .25s; }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-cta { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 9px 22px; background: transparent; border: 1px solid var(--gold); color: var(--gold); cursor: pointer; text-decoration: none; border-radius: var(--radius); transition: all .25s; }
+    .nav-cta:hover { background: var(--gold); color: var(--navy-deep); }
+
+    /* HERO */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 5% 80px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(201,168,76,0.07) 0%, transparent 65%), linear-gradient(180deg, #040810 0%, #0d1628 40%, #080f1f 100%);
+    }
+    .hero-bg::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 70%); }
+    .hero-content { position: relative; z-index: 1; max-width: 960px; }
+    .hero-eyebrow { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; display: inline-flex; align-items: center; gap: 16px; }
+    .hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+    .hero-edition { font-family: 'Manrope', sans-serif; font-size: clamp(12px, 1.5vw, 14px); font-weight: 600; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold-pale); margin-bottom: 16px; }
+    .hero-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(52px, 9vw, 108px); line-height: 0.9; letter-spacing: -0.03em; color: var(--white); margin-bottom: 6px; }
+    .hero-title .gold { color: var(--gold); }
+    .hero-subtitle { font-family: 'Syne', sans-serif; font-size: clamp(13px, 2vw, 18px); font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-top: 16px; margin-bottom: 8px; }
+    .hero-theme { font-family: 'Manrope', sans-serif; font-style: italic; font-size: clamp(15px, 1.8vw, 19px); font-weight: 300; color: var(--gold-pale); margin-bottom: 50px; letter-spacing: 0.02em; }
+    .hero-actions { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .btn-primary { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 16px 38px; background: var(--gold); color: var(--navy-deep); border: none; cursor: pointer; border-radius: var(--radius); text-decoration: none; transition: all .3s; position: relative; overflow: hidden; }
+    .btn-primary::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,.15) 0%, transparent 60%); }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,.35); }
+    .btn-outline { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px 38px; background: transparent; color: var(--gold); border: 1px solid var(--border); cursor: pointer; border-radius: var(--radius); text-decoration: none; transition: all .3s; }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,.08); transform: translateY(-2px); }
+    .hero-scroll { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; font-family: 'Manrope', sans-serif; font-size: 10px; letter-spacing: 0.2em; font-weight: 600; color: var(--muted); text-transform: uppercase; animation: bounce 2s ease-in-out infinite; }
+    .hero-scroll svg { width: 20px; height: 20px; stroke: var(--gold-dim); fill: none; stroke-width: 2; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+    /* STATS */
+    .stats-bar { background: var(--navy-mid); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 36px 5%; display: flex; justify-content: center; flex-wrap: wrap; }
+    .stat-item { flex: 1; min-width: 160px; max-width: 240px; text-align: center; padding: 12px 28px; position: relative; }
+    .stat-item + .stat-item::before { content: ''; position: absolute; left: 0; top: 20%; height: 60%; width: 1px; background: var(--border); }
+    .stat-number { font-family: 'Syne', sans-serif; font-size: clamp(30px, 4vw, 44px); font-weight: 800; color: var(--gold); line-height: 1; display: block; }
+    .stat-label { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+
+    /* SECTION BASE */
+    section { position: relative; z-index: 1; }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 100px 5%; }
+    .section-tag { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .section-tag::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+    .section-heading { font-family: 'Syne', sans-serif; font-size: clamp(28px, 4vw, 48px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; color: var(--white); margin-bottom: 16px; }
+    .section-heading .accent { color: var(--gold); }
+    .section-lead { font-family: 'Manrope', sans-serif; font-size: clamp(15px, 1.6vw, 18px); font-weight: 400; color: var(--muted); max-width: 680px; margin-bottom: 52px; line-height: 1.9; }
+    .divider { width: 60px; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); margin: 18px 0 44px; }
+
+    /* ABOUT */
+    #about { background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy-mid) 100%); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .about-card { background: var(--navy-light); padding: 48px 40px; border: 1px solid var(--border); position: relative; overflow: hidden; transition: border-color .3s; }
+    .about-card:hover { border-color: rgba(201,168,76,.45); }
+    .about-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .about-card-label { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+    .about-card-label svg { width: 16px; height: 16px; fill: none; stroke: var(--gold); stroke-width: 1.8; }
+    .about-card h3 { font-family: 'Syne', sans-serif; font-size: clamp(18px, 2.2vw, 24px); font-weight: 700; color: var(--white); margin-bottom: 16px; line-height: 1.2; letter-spacing: -0.02em; }
+    .about-card p { color: var(--muted); font-size: 15px; line-height: 1.9; }
+    .about-pillars { margin-top: 26px; display: flex; flex-direction: column; gap: 10px; }
+    .pillar { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--white); }
+    .pillar::before { content: '◆'; color: var(--gold); font-size: 7px; margin-top: 6px; flex-shrink: 0; }
+
+    /* ACTIVITIES */
+    #activities { background: var(--navy-deep); }
+    .activities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .activity-card { border: 1px solid var(--border); padding: 34px 28px; background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy-mid) 100%); border-radius: var(--radius); position: relative; overflow: hidden; transition: transform .3s, border-color .3s, box-shadow .3s; }
+    .activity-card:hover { transform: translateY(-6px); border-color: rgba(201,168,76,.45); box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+    .activity-number { font-family: 'Syne', sans-serif; font-size: 48px; font-weight: 800; color: rgba(201,168,76,.07); line-height: 1; position: absolute; top: 14px; right: 18px; }
+    .activity-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .activity-card p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    /* THEME */
+    #theme { background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-deep) 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .theme-quote { font-family: 'Syne', sans-serif; font-size: clamp(18px, 3vw, 34px); font-weight: 700; line-height: 1.25; color: var(--white); border-left: 3px solid var(--gold); padding-left: 28px; margin-bottom: 48px; letter-spacing: -0.02em; }
+    .theme-quote span { color: var(--gold); }
+    .theme-body { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .theme-text { font-size: 16px; color: var(--muted); line-height: 1.9; }
+    .theme-text p + p { margin-top: 16px; }
+    .theme-tags { display: flex; flex-direction: column; gap: 10px; }
+    .theme-tag { display: flex; align-items: center; gap: 14px; padding: 13px 18px; border: 1px solid var(--border); background: rgba(201,168,76,.04); border-radius: var(--radius); font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); transition: all .25s; }
+    .theme-tag:hover { border-color: var(--gold-dim); background: rgba(201,168,76,.08); }
+    .theme-tag::before { content: '//'; color: var(--gold-dim); font-family: 'Manrope', sans-serif; font-size: 11px; }
+
+    /* WHY */
+    #why { background: var(--navy-deep); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2px; }
+    .why-card { padding: 40px 32px; background: var(--navy-mid); border: 1px solid var(--border); transition: background .3s, border-color .3s; }
+    .why-card:hover { background: var(--navy-light); border-color: rgba(201,168,76,.4); }
+    .why-num { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 16px; }
+    .why-card h3 { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 14px; line-height: 1.3; }
+    .why-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .why-card ul li { font-size: 14px; color: var(--muted); padding-left: 18px; position: relative; line-height: 1.6; }
+    .why-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-size: 12px; top: 3px; }
+
+    /* FORMULAS */
+    #formulas { background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy-deep) 100%); }
+    .formulas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 28px; }
+    .formula-card { border: 1px solid var(--border); background: var(--navy-light); padding: 38px 30px; border-radius: var(--radius); position: relative; overflow: hidden; transition: transform .3s, box-shadow .3s; }
+    .formula-card:hover { transform: translateY(-8px); box-shadow: 0 24px 70px rgba(0,0,0,.5); }
+    .formula-card.featured { border-color: var(--gold); background: linear-gradient(135deg, rgba(201,168,76,.06) 0%, var(--navy-light) 60%); }
+    .formula-card.featured::before { content: 'RECOMMANDÉ'; position: absolute; top: 18px; right: -28px; font-family: 'Manrope', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; background: var(--gold); color: var(--navy-deep); padding: 4px 40px; transform: rotate(45deg); }
+    .formula-badge { display: inline-flex; align-items: center; gap: 8px; font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 18px; }
+    .badge-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .badge-platinum { color: #c8c8d8; } .badge-platinum .badge-dot { background: #e8e8f0; box-shadow: 0 0 8px rgba(232,232,240,.6); }
+    .badge-gold { color: var(--gold); } .badge-gold .badge-dot { background: var(--gold); box-shadow: 0 0 8px rgba(201,168,76,.6); }
+    .badge-silver { color: #aab0be; } .badge-silver .badge-dot { background: #aab0be; box-shadow: 0 0 6px rgba(170,176,190,.4); }
+    .formula-price { font-family: 'Syne', sans-serif; font-size: clamp(30px, 3.5vw, 42px); font-weight: 800; line-height: 1; margin-bottom: 6px; letter-spacing: -0.02em; }
+    .formula-price .currency { font-size: 0.5em; font-weight: 600; color: var(--muted); margin-left: 4px; }
+    .price-platinum { color: var(--gold); } .price-gold { color: var(--gold-pale); } .price-silver { color: #aab0be; }
+    .formula-divider { width: 100%; height: 1px; background: var(--border); margin: 22px 0; }
+    .formula-features { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .formula-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.6; }
+    .check-yes { color: var(--gold); font-size: 12px; flex-shrink: 0; margin-top: 2px; }
+    .check-no { color: #1e2d44; font-size: 12px; flex-shrink: 0; margin-top: 2px; }
+    .f-active { color: var(--white); } .f-inactive { color: #1e2d44; }
+    .formula-cta { display: block; width: 100%; margin-top: 28px; font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 13px 20px; text-align: center; text-decoration: none; border-radius: var(--radius); transition: all .25s; cursor: pointer; }
+    .cta-platinum { background: var(--gold); color: var(--navy-deep); } .cta-platinum:hover { background: var(--gold-light); }
+    .cta-gold { background: transparent; border: 1px solid var(--gold); color: var(--gold); } .cta-gold:hover { background: rgba(201,168,76,.1); }
+    .cta-silver { background: transparent; border: 1px solid #aab0be; color: #aab0be; } .cta-silver:hover { background: rgba(170,176,190,.08); }
+
+    /* STARTUP */
+    .startup-card { border: 1px solid var(--border); background: linear-gradient(135deg, var(--navy-light), var(--navy-mid)); border-radius: var(--radius); padding: 40px; display: grid; grid-template-columns: auto 1fr; gap: 44px; align-items: center; transition: border-color .3s; }
+    .startup-card:hover { border-color: rgba(201,168,76,.4); }
+    .startup-price-block { text-align: center; }
+    .startup-badge { display: inline-block; font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); border-radius: 4px; padding: 5px 14px; margin-bottom: 12px; }
+    .startup-price { font-family: 'Syne', sans-serif; font-size: 50px; font-weight: 800; color: var(--gold); line-height: 1; letter-spacing: -0.02em; }
+    .startup-price-sub { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
+    .startup-title { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; color: var(--gold); margin-bottom: 18px; letter-spacing: -0.01em; }
+    .startup-features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .startup-feature { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .startup-feature::before { content: '✦'; color: var(--gold); font-size: 8px; margin-top: 4px; flex-shrink: 0; }
+
+    /* TRUST */
+    #trust { background: var(--navy-deep); border-top: 1px solid var(--border); }
+    .logos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 1px; }
+    .logo-cell { border: 1px solid var(--border); padding: 24px 16px; display: flex; align-items: center; justify-content: center; background: var(--navy-mid); font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-align: center; color: var(--muted); transition: background .25s, color .25s; min-height: 72px; border-radius: 2px; }
+    .logo-cell:hover { background: var(--navy-light); color: var(--gold); }
+
+    /* SCHOOLS */
+    #schools { background: var(--navy-mid); border-top: 1px solid var(--border); }
+    .schools-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .school-tag { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; padding: 7px 14px; border: 1px solid var(--border); color: var(--muted); background: var(--navy-light); border-radius: var(--radius); transition: all .2s; }
+    .school-tag:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* CONTACT */
+    #contact { background: linear-gradient(180deg, var(--navy-deep) 0%, #020508 100%); border-top: 1px solid var(--border); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+    .contact-card { border: 1px solid var(--border); padding: 40px; background: var(--navy-mid); border-radius: var(--radius); position: relative; overflow: hidden; transition: border-color .3s; }
+    .contact-card:hover { border-color: rgba(201,168,76,.45); }
+    .contact-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .contact-role { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .contact-name { font-family: 'Syne', sans-serif; font-size: clamp(18px, 2.2vw, 24px); font-weight: 700; color: var(--white); margin-bottom: 22px; letter-spacing: -0.02em; }
+    .contact-info { display: flex; flex-direction: column; gap: 12px; }
+    .contact-line { display: flex; align-items: center; gap: 12px; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 400; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .contact-line:hover { color: var(--gold); }
+    .contact-line svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.8; flex-shrink: 0; }
+    .contact-main { margin-top: 36px; text-align: center; font-family: 'Manrope', sans-serif; font-size: 15px; color: var(--muted); }
+    .contact-main a { color: var(--gold); text-decoration: none; }
+    .contact-main a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer { background: var(--navy-deep); border-top: 1px solid var(--border); padding: 32px 5%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+    .footer-brand { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 800; letter-spacing: -0.01em; color: var(--gold); }
+    .footer-links { display: flex; gap: 22px; }
+    .footer-links a { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-family: 'Manrope', sans-serif; font-size: 11px; color: #2a3555; }
+
+    /* REVEAL */
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .rd1{transition-delay:.1s} .rd2{transition-delay:.2s} .rd3{transition-delay:.3s} .rd4{transition-delay:.4s}
+
+    @media(max-width:900px){
+      .nav-links{display:none}
+      .about-grid,.theme-body,.contact-grid{grid-template-columns:1fr}
+      .formulas-grid{grid-template-columns:1fr}
+      .startup-card{grid-template-columns:1fr;gap:24px}
+      .startup-features{grid-template-columns:1fr}
+    }
+    @media(max-width:600px){
+      .hero-actions{flex-direction:column}
+      .btn-primary,.btn-outline{width:100%;text-align:center}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-brand">
+    <span class="nav-logo">JNJD</span>
+    <span class="nav-div"></span>
+    <span class="nav-edition">Dossier Sponsoring · 20ème Édition</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">L'événement</a></li>
+    <li><a href="#theme">Thème</a></li>
+    <li><a href="#formulas">Formules</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="DS-JNJD.pdf" download class="nav-cta">↓ Télécharger PDF</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Club Informatique &amp; Télécom · INPT · Rabat</div>
+    <p class="hero-edition">20ème Édition · 2026</p>
+    <h1 class="hero-title"><span class="gold">JNJD</span></h1>
+    <p class="hero-subtitle">Journées Nationales des Jeunes Développeurs</p>
+    <p class="hero-theme">"The Agentic Shift: Building Systems That Think, Act, and Adapt"</p>
+    <div class="hero-actions">
+      <a href="#formulas" class="btn-primary">Voir les formules</a>
+      <a href="DS-JNJD.pdf" download class="btn-outline">↓ Dossier PDF</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    Découvrir
+    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat-item reveal"><span class="stat-number" data-target="20">0</span><span class="stat-label">Éditions</span></div>
+  <div class="stat-item reveal rd1"><span class="stat-number" data-target="500">0</span><span class="stat-label">Étudiants ingénieurs</span></div>
+  <div class="stat-item reveal rd2"><span class="stat-number" data-target="30">0</span><span class="stat-label">Institutions académiques</span></div>
+  <div class="stat-item reveal rd3"><span class="stat-number" data-target="6000">0</span><span class="stat-label">Abonnés réseaux sociaux</span></div>
+</div>
+
+<section id="about">
+  <div class="section-inner">
+    <div class="section-tag reveal">L'écosystème</div>
+    <h2 class="section-heading reveal">Deux piliers.<br/><span class="accent">Une vision.</span></h2>
+    <div class="divider reveal"></div>
+    <div class="about-grid reveal">
+      <div class="about-card">
+        <div class="about-card-label"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> INPT</div>
+        <h3>Institut National des Postes et Télécommunications</h3>
+        <p>Rattaché à l'ANRT, l'INPT est une référence parmi les établissements d'enseignement supérieur et de recherche depuis 1961. Adhérent à la Conférence des Grandes Écoles d'Ingénieurs Françaises depuis 2008.</p>
+        <div class="about-pillars">
+          <div class="pillar">Formation des leaders du numérique de demain</div>
+          <div class="pillar">Soutien au développement de l'écosystème numérique</div>
+          <div class="pillar">Transformation pérenne de l'enseignement supérieur</div>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-label"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg> CIT</div>
+        <h3>Club Informatique &amp; Télécom</h3>
+        <p>Pilier du parascolaire de l'INPT depuis 1996, le CIT forme ses membres sur 6 domaines — Sécurité, Data, Web, Algorithmique, Design et DevOps — et organise des événements de portée nationale.</p>
+        <div class="about-pillars">
+          <div class="pillar">Cellule Technique — ressources &amp; infrastructure</div>
+          <div class="pillar">Cellule Prospection — relations avec l'industrie</div>
+          <div class="pillar">Cellule Médiatisation — identité visuelle &amp; réseaux</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="activities">
+  <div class="section-inner">
+    <div class="section-tag reveal">Programme</div>
+    <h2 class="section-heading reveal">Activités <span class="accent">de la journée</span></h2>
+    <p class="section-lead reveal">Une expérience complète, structurée autour de moments techniques, professionnels et collaboratifs.</p>
+    <div class="activities-grid">
+      <div class="activity-card reveal"><div class="activity-number">01</div><div class="activity-title">Conférences &amp; Experts</div><p>Interventions d'ingénieurs et experts d'entreprises reconnues. Une occasion de partager votre vision et d'interagir avec les futurs ingénieurs.</p></div>
+      <div class="activity-card reveal rd1"><div class="activity-number">02</div><div class="activity-title">Ateliers Techniques</div><p>Sessions interactives permettant aux participants de renforcer leurs compétences autour d'outils et méthodologies de l'industrie.</p></div>
+      <div class="activity-card reveal rd2"><div class="activity-number">03</div><div class="activity-title">Compétition de Programmation</div><p>Point central de la JNJD : les étudiants les plus talentueux s'affrontent sur des défis algorithmiques exigeants rigueur et maîtrise.</p></div>
+      <div class="activity-card reveal rd3"><div class="activity-number">04</div><div class="activity-title">Cérémonie de Clôture</div><p>Reconnaissance de l'excellence, valorisation des talents et célébration de la contribution des partenaires dans une atmosphère d'innovation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="theme">
+  <div class="section-inner">
+    <div class="section-tag reveal">Thème 2026</div>
+    <blockquote class="theme-quote reveal">"The Agentic Shift:<br/><span>Building Systems That Think, Act, and Adapt"</span></blockquote>
+    <div class="theme-body reveal">
+      <div class="theme-text">
+        <p>Nous sommes à l'aube d'une transformation fondamentale du logiciel. La frontière du développement est désormais définie par les systèmes agentiques — des programmes qui perçoivent, raisonnent, planifient et exécutent, autonomement, en boucles, à grande échelle.</p>
+        <p>Ce n'est pas de la recherche. C'est de la production. Des frameworks comme LangGraph, AutoGen et CrewAI sont devenus mainstream. OpenAI, Anthropic, Google et Meta ont tous placé l'agentivité au cœur de leurs plateformes.</p>
+        <p>La JNJD 2026 confronte les participants à sa réalité technique : comment concevoir des systèmes qui prennent des décisions ? Comment intégrer confiance, observabilité et contrôle dans quelque chose qui agit seul ?</p>
+      </div>
+      <div class="theme-tags">
+        <div class="theme-tag">Intégration LLM</div>
+        <div class="theme-tag">Orchestration Multi-Agents</div>
+        <div class="theme-tag">Architectures Tool-Calling</div>
+        <div class="theme-tag">Gestion de Mémoire</div>
+        <div class="theme-tag">Sécurité IA</div>
+        <div class="theme-tag">Edge &amp; Cloud Computing</div>
+        <div class="theme-tag">Systèmes Distribués</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="section-inner">
+    <div class="section-tag reveal">Pourquoi nous rejoindre</div>
+    <h2 class="section-heading reveal">5 raisons de <span class="accent">nous sponsoriser</span></h2>
+    <div class="divider reveal"></div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-num">01</div><h3>Accès Direct à un Vivier d'Élite</h3><ul><li>+6000 abonnés sur nos réseaux sociaux</li><li>Profils spécialisés : AI, Cloud, Telecom, Cybersecurity</li><li>Accès prioritaire via le Talent Scouting System</li></ul></div>
+      <div class="why-card reveal rd1"><div class="why-num">02</div><h3>Plateforme de Recrutement Stratégique</h3><ul><li>Évaluation en environnement technique réel</li><li>Identification des profils à fort potentiel</li><li>Opportunités directes : stages, emplois, collaborations</li></ul></div>
+      <div class="why-card reveal rd2"><div class="why-num">03</div><h3>Interaction avec une Audience Qualifiée</h3><ul><li>Engagement direct avec futurs ingénieurs</li><li>Présentation de vos technologies et projets</li><li>Relations durables avec les talents de demain</li></ul></div>
+      <div class="why-card reveal rd3"><div class="why-num">04</div><h3>Visibilité &amp; Impact Durable</h3><ul><li>Présence au cœur de l'écosystème tech national</li><li>Exposition auprès d'une audience ciblée</li><li>Contribution au développement des talents</li></ul></div>
+      <div class="why-card reveal rd4"><div class="why-num">05</div><h3>Investissement à Forte Valeur</h3><ul><li>Accès exclusif aux talents technologiques émergents</li><li>Positionnement au cœur de l'innovation</li><li>Collaboration avec les ingénieurs de demain</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="formulas">
+  <div class="section-inner">
+    <div class="section-tag reveal">Partenariat</div>
+    <h2 class="section-heading reveal">Formules de <span class="accent">Sponsoring</span></h2>
+    <p class="section-lead reveal">Choisissez le niveau d'engagement qui correspond à votre ambition.</p>
+    <div class="formulas-grid">
+      <div class="formula-card featured reveal">
+        <div class="formula-badge badge-platinum"><span class="badge-dot"></span> Platinum</div>
+        <div class="formula-price price-platinum">30 000<span class="currency">DH</span></div>
+        <div class="formula-divider"></div>
+        <ul class="formula-features">
+          <li><span class="check-yes">✦</span><span class="f-active">Mention "Sponsor Officiel" durant les conférences</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Accès base de données participants (Talent Scouting)</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Stand de recrutement dédié</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Logo prioritaire sur tous les supports</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Commercialisation de produits/services</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Accès zone VIP pour votre délégation</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Accompagnement dédié tout au long</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Médiatisation sur tous les réseaux du club</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Représentant aux conférences</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Logo sur le T-shirt officiel</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Publicité sur les écrans (compétition)</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Logo réseaux sociaux de l'événement</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Logo sur tous les imprimés</span></li>
+        </ul>
+        <a href="#contact" class="formula-cta cta-platinum">Devenir Platinum →</a>
+      </div>
+      <div class="formula-card reveal rd1">
+        <div class="formula-badge badge-gold"><span class="badge-dot"></span> Gold</div>
+        <div class="formula-price price-gold">20 000<span class="currency">DH</span></div>
+        <div class="formula-divider"></div>
+        <ul class="formula-features">
+          <li><span class="check-no">—</span><span class="f-inactive">Mention "Sponsor Officiel"</span></li>
+          <li><span class="check-no">—</span><span class="f-inactive">Accès base de données participants</span></li>
+          <li><span class="check-no">—</span><span class="f-inactive">Stand de recrutement dédié</span></li>
+          <li><span class="check-no">—</span><span class="f-inactive">Logo prioritaire</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Commercialisation de produits/services</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Accès zone VIP</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Accompagnement dédié</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Médiatisation réseaux du club</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Représentant aux conférences</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Logo sur le T-shirt officiel</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Publicité sur les écrans</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Logo réseaux sociaux</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Logo sur tous les imprimés</span></li>
+        </ul>
+        <a href="#contact" class="formula-cta cta-gold">Devenir Gold →</a>
+      </div>
+      <div class="formula-card reveal rd2">
+        <div class="formula-badge badge-silver"><span class="badge-dot"></span> Silver</div>
+        <div class="formula-price price-silver">10 000<span class="currency">DH</span></div>
+        <div class="formula-divider"></div>
+        <ul class="formula-features">
+          <li><span class="check-no">—</span><span class="f-inactive">Mention "Sponsor Officiel"</span></li>
+          <li><span class="check-no">—</span><span class="f-inactive">Accès base de données participants</span></li>
+          <li><span class="check-no">—</span><span class="f-inactive">Stand de recrutement dédié</span></li>
+          <li><span class="check-no">—</span><span class="f-inactive">Logo prioritaire</span></li>
+          <li><span class="check-no">—</span><span class="f-inactive">Commercialisation produits/services</span></li>
+          <li><span class="check-no">—</span><span class="f-inactive">Accès zone VIP</span></li>
+          <li><span class="check-no">—</span><span class="f-inactive">Accompagnement dédié</span></li>
+          <li><span class="check-no">—</span><span class="f-inactive">Médiatisation réseaux du club</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Représentant aux conférences</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Logo sur le T-shirt officiel</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Publicité sur les écrans</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Logo réseaux sociaux</span></li>
+          <li><span class="check-yes">✦</span><span class="f-active">Logo sur tous les imprimés</span></li>
+        </ul>
+        <a href="#contact" class="formula-cta cta-silver">Devenir Silver →</a>
+      </div>
+    </div>
+    <div class="startup-card reveal">
+      <div class="startup-price-block">
+        <div class="startup-badge">Startup Partner</div>
+        <div class="startup-price">5 000</div>
+        <div class="startup-price-sub">DH</div>
+      </div>
+      <div>
+        <div class="startup-title">Formule Startup — Recrutement &amp; Visibilité</div>
+        <div class="startup-features">
+          <div class="startup-feature">Stand recrutement dédié — stages &amp; embauche</div>
+          <div class="startup-feature">Publication dédiée sur LinkedIn, Instagram, Facebook</div>
+          <div class="startup-feature">Logo sur tous les imprimés de l'événement</div>
+          <div class="startup-feature">Logo sur les pages et publications de l'événement</div>
+          <div class="startup-feature">Logo sur le T-shirt officiel</div>
+          <div class="startup-feature">Présence d'un représentant aux conférences</div>
+        </div>
+        <a href="#contact" class="formula-cta cta-gold" style="display:inline-block;width:auto;margin-top:20px;padding:12px 32px">Contacter pour Startup Partner →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="schools">
+  <div class="section-inner">
+    <div class="section-tag reveal">Écoles participantes</div>
+    <h2 class="section-heading reveal">30+ institutions.<br/><span class="accent">500+ ingénieurs.</span></h2>
+    <div class="divider reveal"></div>
+    <div class="schools-row reveal">
+      <span class="school-tag">INPT</span><span class="school-tag">EMI</span><span class="school-tag">ENSIAS</span><span class="school-tag">INSEA</span><span class="school-tag">ENSEM</span><span class="school-tag">EHTP</span><span class="school-tag">ENIM</span><span class="school-tag">ENSAM</span><span class="school-tag">ENSA</span><span class="school-tag">Al Akhawayn University</span><span class="school-tag">FST</span><span class="school-tag">Facultés des Sciences</span><span class="school-tag">EMSI</span><span class="school-tag">1337</span><span class="school-tag">ESTEM</span><span class="school-tag">IGA</span><span class="school-tag">Sup Telecom</span><span class="school-tag">SUPTEM Safi</span><span class="school-tag">ESITH</span><span class="school-tag">ISNTIC</span><span class="school-tag">Et plus encore…</span>
+    </div>
+  </div>
+</section>
+
+<section id="trust">
+  <div class="section-inner">
+    <div class="section-tag reveal">Confiance établie</div>
+    <h2 class="section-heading reveal">Ils nous ont <span class="accent">fait confiance</span></h2>
+    <p class="section-lead reveal">Des entreprises qui ont choisi la JNJD pour rencontrer les talents technologiques du Maroc.</p>
+    <div class="logos-grid reveal">
+      <div class="logo-cell">SAFRAN</div><div class="logo-cell">CGI</div><div class="logo-cell">DXC Technology</div><div class="logo-cell">CDG</div><div class="logo-cell">ERICSSON</div><div class="logo-cell">La Marocaine Vie</div><div class="logo-cell">HP</div><div class="logo-cell">INWI</div><div class="logo-cell">ANRT</div><div class="logo-cell">Orange</div><div class="logo-cell">MCHAIN</div><div class="logo-cell">SNRT</div><div class="logo-cell">IT Road Group</div><div class="logo-cell">XHub</div><div class="logo-cell">Société Générale</div><div class="logo-cell">UBISOFT</div><div class="logo-cell">MACS</div><div class="logo-cell">Sekera</div><div class="logo-cell">Nucleon</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-tag reveal">Rejoignez-nous</div>
+    <h2 class="section-heading reveal">Prenons <span class="accent">contact</span></h2>
+    <p class="section-lead reveal">Rejoignez la 20ème édition de la JNJD et positionnez votre organisation au cœur de l'innovation technologique marocaine.</p>
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <div class="contact-role">Président du Club</div>
+        <div class="contact-name">Anas Chakrone</div>
+        <div class="contact-info">
+          <a href="mailto:chakrone.anas@gmail.com" class="contact-line"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>chakrone.anas@gmail.com</a>
+          <a href="tel:+212616730025" class="contact-line"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+212 616-730025</a>
+        </div>
+      </div>
+      <div class="contact-card reveal rd1">
+        <div class="contact-role">Chef Sponsoring</div>
+        <div class="contact-name">Nizar Benselloum</div>
+        <div class="contact-info">
+          <a href="mailto:benselloum.nizar@gmail.com" class="contact-line"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>benselloum.nizar@gmail.com</a>
+          <a href="tel:+212642457729" class="contact-line"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+212 642-457729</a>
+        </div>
+      </div>
+    </div>
+    <div class="contact-main reveal" style="margin-top:28px">Ou écrivez-nous à <a href="mailto:cit.inpt@gmail.com">cit.inpt@gmail.com</a></div>
+    <div style="text-align:center;margin-top:56px" class="reveal">
+      <p style="font-family:'Manrope',sans-serif;font-style:italic;color:var(--muted);font-size:15px;margin-bottom:20px">Partagez le dossier de sponsoring avec votre équipe</p>
+      <a href="DS-JNJD.pdf" download class="btn-primary" style="display:inline-block">↓ Télécharger le Dossier PDF</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">JNJD · 20ÈME ÉDITION · 2026</div>
+  <div class="footer-links">
+    <a href="#formulas">Formules</a>
+    <a href="#contact">Contact</a>
+    <a href="DS-JNJD.pdf" download>PDF</a>
+    <a href="index.html">Inscription</a>
+  </div>
+  <div class="footer-copy">© 2026 Club Informatique &amp; Télécom — INPT Rabat</div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const sio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        const el = e.target, t = parseInt(el.dataset.target);
+        const s = el.dataset.target >= 500 ? '+' : (t===20?'ème':'+');
+        let start = null;
+        (function step(ts){ if(!start) start=ts; const p=Math.min((ts-start)/1800,1), ease=1-Math.pow(1-p,3); el.textContent=Math.floor(ease*t)+s; if(p<1)requestAnimationFrame(step); })(0);
+        sio.unobserve(el);
+      }
+    });
+  }, {threshold:.5});
+  document.querySelectorAll('[data-target]').forEach(el => sio.observe(el));
+</script>
+</body>
+</html>

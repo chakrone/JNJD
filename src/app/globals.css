@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+:root {
+  --background: #03060f;
+  --foreground: #eeeae0;
+
+  --bg-1: #070d1c;
+  --bg-2: #0c1428;
+  --bg-3: #111c36;
+
+  --gold: #c8a84b;
+  --gold-hi: #e2c16a;
+  --gold-lo: #6b5520;
+  --gold-faint: #c8a84b18;
+
+  --muted: #667799;
+  --dim: #1e2d4a;
+  --border: rgba(200, 168, 75, 0.15);
+
+  --radius: 6px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-outfit), sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-lo);
+  border-radius: 2px;
+}
+
+/* Utilities */
+.glass-panel {
+  background: rgba(12, 20, 40, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.bg-gold {
+  background-color: var(--gold);
+}
+
+.btn-primary {
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  background: var(--gold);
+  color: var(--background);
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  white-space: nowrap;
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    transparent 60%
+  );
+}
+
+.btn-primary:hover {
+  background: var(--gold-hi);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(200, 168, 75, 0.3);
+}
+
+.btn-outline {
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 13px 32px;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  white-space: nowrap;
+}
+
+.btn-outline:hover {
+  border-color: var(--gold);
+  background: var(--gold-faint);
+  transform: translateY(-2px);
+}
+
+/* Form inputs — mobile-first: min 48px height prevents iOS zoom */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 13px 16px;
+  min-height: 48px;
+  background: var(--bg-2);
+  border: 1px solid var(--dim);
+  border-radius: var(--radius);
+  color: var(--foreground);
+  outline: none;
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
+  font-family: inherit;
+  font-size: 16px; /* 16px prevents iOS auto-zoom */
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--gold);
+  background: var(--bg-3);
+  box-shadow: 0 0 0 2px var(--gold-faint);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+select option {
+  background: var(--bg-2);
+  color: var(--foreground);
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+  line-height: 1.5;
+}
