@@ -308,7 +308,7 @@ export default function RegistrationForm() {
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="text-center py-12 px-6"
+      className="fixed inset-0 z-[100] bg-[#03060f] flex flex-col items-center justify-center p-6 text-center overflow-y-auto"
     >
       <div className="w-20 h-20 bg-gold/10 border-2 border-gold rounded-full flex items-center justify-center mx-auto mb-6">
         <CheckCircle2 className="w-10 h-10 text-gold" />
