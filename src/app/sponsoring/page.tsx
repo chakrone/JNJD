@@ -131,8 +131,8 @@ function FormulaCard({
       }`}
     >
       {featured && (
-        <div className="absolute top-0 right-0 bg-[#c9a84c] text-[#040810] text-[9px] font-bold tracking-widest uppercase px-8 py-1.5 translate-x-5 translate-y-3 rotate-45">
-          RECOMMANDÉ
+        <div className="absolute top-5 right-5 bg-gradient-to-r from-[#c9a84c] to-[#e8c96a] text-[#040810] text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded shadow-lg flex items-center gap-1">
+          <span className="text-[12px] leading-none mb-[1px]">★</span> Recommandé
         </div>
       )}
       <div className={`flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-3 ${badgeColor}`}>
