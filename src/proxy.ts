@@ -24,10 +24,11 @@ export function proxy(req: NextRequest) {
 
   // Detect "sponsoring" subdomain
   // Works for:
-  //   sponsoring.jnjd.vercel.app  (production)
-  //   sponsoring.localhost:3000   (local dev)
+  //   sponsoring.jnjd.vercel.app    (custom domains)
+  //   jnjd-sponsoring.vercel.app    (free tier vercel)
+  //   sponsoring.localhost:3000     (local dev)
   const isSponsoring =
-    hostParts[0] === "sponsoring" &&
+    (hostParts[0] === "sponsoring" || hostParts[0].includes("sponsoring")) &&
     !hostname.startsWith("www.") &&
     !hostname.startsWith("localhost");
 
