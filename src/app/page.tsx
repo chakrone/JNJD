@@ -38,26 +38,26 @@ export default function Home() {
     <main className="min-h-screen relative overflow-x-hidden text-[#eeeae0]">
 
       {/* ── NAVBAR ── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-4 sm:px-6 lg:px-12 bg-[#03060f]/85 backdrop-blur-xl border-b border-[#c8a84b]/15">
+      <nav className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-4 sm:px-6 lg:px-12 bg-[#020611]/85 backdrop-blur-xl border-b border-[#c8a84b]/15">
         {/* Brand */}
         <div className="flex items-center gap-3">
           <Image src="/assets/Logo BW 2.png" alt="JNJD" width={34} height={34} className="opacity-90 flex-shrink-0" />
           <div className="flex flex-col leading-none">
             <span className="font-outfit font-extrabold text-[#c8a84b] text-base tracking-tight leading-none"></span>
-            <span className="text-[9px] font-semibold text-[#667799] tracking-wider uppercase leading-none mt-0.5 hidden xs:block">20th Edition</span>
+            <span className="text-[9px] font-semibold text-[#6284b3] tracking-wider uppercase leading-none mt-0.5 hidden xs:block">20th Edition</span>
           </div>
-          <span className="w-px h-6 bg-[#1e2d4a] mx-1 hidden md:block" />
-          <span className="text-[10px] font-semibold text-[#667799] tracking-widest hidden md:block">
+          <span className="w-px h-6 bg-[#1c4481] mx-1 hidden md:block" />
+          <span className="text-[10px] font-semibold text-[#6284b3] tracking-widest hidden md:block">
             Journées Nationales des Jeunes Développeurs
           </span>
         </div>
 
         {/* Desktop nav links */}
         <div className="hidden sm:flex items-center gap-6">
-          <button onClick={() => scrollToSection("rules")} className="text-sm font-semibold text-[#667799] hover:text-[#c8a84b] transition-colors">Rules</button>
+          <button onClick={() => scrollToSection("rules")} className="text-sm font-semibold text-[#6284b3] hover:text-[#c8a84b] transition-colors">Rules</button>
           <button
             onClick={() => scrollToSection("register")}
-            className="text-xs font-outfit font-bold uppercase tracking-wider px-4 py-2 border border-[#c8a84b] text-[#c8a84b] rounded hover:bg-[#c8a84b] hover:text-[#03060f] transition-colors"
+            className="text-xs font-outfit font-bold uppercase tracking-wider px-4 py-2 border border-[#c8a84b] text-[#c8a84b] rounded hover:bg-[#c8a84b] hover:text-[#020611] transition-colors"
           >
             Register
           </button>
@@ -66,7 +66,7 @@ export default function Home() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMenuOpen((v) => !v)}
-          className="sm:hidden w-10 h-10 flex items-center justify-center text-[#667799] hover:text-[#c8a84b] transition-colors"
+          className="sm:hidden w-10 h-10 flex items-center justify-center text-[#6284b3] hover:text-[#c8a84b] transition-colors"
           aria-label="Toggle menu"
         >
           {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -79,17 +79,17 @@ export default function Home() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="fixed top-16 left-0 right-0 z-40 bg-[#03060f]/97 backdrop-blur-xl border-b border-[#c8a84b]/15 px-6 py-6 flex flex-col gap-4 sm:hidden"
+          className="fixed top-16 left-0 right-0 z-40 bg-[#020611]/97 backdrop-blur-xl border-b border-[#c8a84b]/15 px-6 py-6 flex flex-col gap-4 sm:hidden"
         >
           <button
             onClick={() => scrollToSection("rules")}
-            className="text-base font-semibold text-[#667799] hover:text-[#c8a84b] transition-colors text-left py-2"
+            className="text-base font-semibold text-[#6284b3] hover:text-[#c8a84b] transition-colors text-left py-2"
           >
             Rules & Guidelines
           </button>
           <button
             onClick={() => scrollToSection("countdown")}
-            className="text-base font-semibold text-[#667799] hover:text-[#c8a84b] transition-colors text-left py-2"
+            className="text-base font-semibold text-[#6284b3] hover:text-[#c8a84b] transition-colors text-left py-2"
           >
             Countdown
           </button>
@@ -123,7 +123,7 @@ export default function Home() {
             <span>20TH EDITION</span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-[#667799] mb-4 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-[#6284b3] mb-4 max-w-2xl mx-auto leading-relaxed">
             Journées Nationales des Jeunes Développeurs<br />
             Institut National des Postes et Télécommunications
           </p>
@@ -146,7 +146,7 @@ export default function Home() {
           onClick={() => scrollToSection("countdown")}
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="absolute bottom-8 text-[#667799] hover:text-[#c8a84b] transition-colors flex flex-col items-center gap-2"
+          className="absolute bottom-8 text-[#6284b3] hover:text-[#c8a84b] transition-colors flex flex-col items-center gap-2"
         >
           <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Scroll</span>
           <ChevronDown className="w-4 h-4" />
@@ -154,9 +154,9 @@ export default function Home() {
       </section>
 
       {/* ── COUNTDOWN ── */}
-      <section id="countdown" className="border-y border-[#c8a84b]/15 bg-[#070d1c] py-14 px-5">
+      <section id="countdown" className="border-y border-[#c8a84b]/15 bg-[#061224] py-14 px-5">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#667799] mb-8">Time until kickoff — May 16th, 2026</p>
+          <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#6284b3] mb-8">Time until kickoff — May 16th, 2026</p>
           <div className="flex items-center justify-center gap-2 sm:gap-6 md:gap-12">
             {[
               { label: "Days", value: timeLeft.days },
@@ -168,9 +168,9 @@ export default function Home() {
                 <span className="block font-outfit text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#c8a84b] leading-none mb-2 tabular-nums">
                   {unit.value.toString().padStart(2, "0")}
                 </span>
-                <span className="text-[9px] sm:text-[10px] md:text-xs font-semibold text-[#667799] uppercase tracking-widest">{unit.label}</span>
+                <span className="text-[9px] sm:text-[10px] md:text-xs font-semibold text-[#6284b3] uppercase tracking-widest">{unit.label}</span>
                 {i < 3 && (
-                  <span className="absolute -right-2 sm:-right-4 md:-right-8 top-0 text-2xl sm:text-3xl md:text-4xl text-[#1e2d4a] font-outfit font-bold leading-tight">
+                  <span className="absolute -right-2 sm:-right-4 md:-right-8 top-0 text-2xl sm:text-3xl md:text-4xl text-[#1c4481] font-outfit font-bold leading-tight">
                     :
                   </span>
                 )}
@@ -186,7 +186,7 @@ export default function Home() {
           <h2 className="font-outfit text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Rules & <span className="text-[#c8a84b]">Guidelines</span>
           </h2>
-          <p className="text-[#667799] max-w-2xl mx-auto text-sm sm:text-base">Please read carefully before registering your team.</p>
+          <p className="text-[#6284b3] max-w-2xl mx-auto text-sm sm:text-base">Please read carefully before registering your team.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10 sm:mb-12">
@@ -208,7 +208,7 @@ export default function Home() {
                 {rule.icon}
               </div>
               <h3 className="font-outfit text-lg sm:text-xl font-bold mb-2 sm:mb-3">{rule.title}</h3>
-              <p className="text-sm text-[#667799] leading-relaxed">{rule.desc}</p>
+              <p className="text-sm text-[#6284b3] leading-relaxed">{rule.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -218,14 +218,14 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.97 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 p-6 sm:p-8 rounded-xl border-l-4 border-l-[#c8a84b] border border-[#1e2d4a] bg-gradient-to-br from-[#c8a84b]/5 to-transparent"
+          className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 p-6 sm:p-8 rounded-xl border-l-4 border-l-[#c8a84b] border border-[#1c4481] bg-gradient-to-br from-[#c8a84b]/5 to-transparent"
         >
           <div className="flex-shrink-0 font-outfit text-4xl sm:text-5xl font-extrabold text-[#c8a84b] text-center sm:text-left">
-            180 <span className="text-xl text-[#667799]">MAD</span>
+            180 <span className="text-xl text-[#6284b3]">MAD</span>
           </div>
           <div className="text-center sm:text-left">
             <h4 className="font-bold text-lg mb-1">Participation Fee Per Team</h4>
-            <p className="text-sm text-[#667799]">
+            <p className="text-sm text-[#6284b3]">
               Payment confirms participation. Instructions sent after registration.{" "}
               <a href="mailto:cit.inpt@gmail.com" className="text-[#c8a84b] hover:underline">cit.inpt@gmail.com</a>
             </p>
@@ -234,34 +234,34 @@ export default function Home() {
       </section>
 
       {/* ── REGISTRATION ── */}
-      <section id="register" className="py-20 sm:py-24 px-5 bg-[#070d1c] border-t border-[#1e2d4a]">
+      <section id="register" className="py-20 sm:py-24 px-5 bg-[#061224] border-t border-[#1c4481]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="font-outfit text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
               Register Your <span className="text-[#c8a84b]">Team</span>
             </h2>
-            <p className="text-[#667799] text-sm sm:text-base">Secure your spot in the 20th edition of JNJD.</p>
+            <p className="text-[#6284b3] text-sm sm:text-base">Secure your spot in the 20th edition of JNJD.</p>
           </div>
           <RegistrationForm />
         </div>
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="border-t border-[#1e2d4a] bg-[#03060f] pt-10 pb-8 px-5">
+      <footer className="border-t border-[#1c4481] bg-[#020611] pt-10 pb-8 px-5">
         <div className="max-w-6xl mx-auto">
           {/* Top row */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-[#0e1830]">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-[#08172d]">
             {/* Logo */}
             <div className="flex items-center gap-3">
               <Image src="/assets/Logo BW 2.png" alt="JNJD" width={32} height={32} className="opacity-80" />
               <div className="flex flex-col">
                 <span className="font-outfit font-extrabold text-[#c8a84b] text-sm tracking-tight leading-none">JNJD 2026</span>
-                <span className="text-[9px] text-[#667799] tracking-widest uppercase mt-0.5">20th Edition</span>
+                <span className="text-[9px] text-[#6284b3] tracking-widest uppercase mt-0.5">20th Edition</span>
               </div>
             </div>
 
             {/* Nav links */}
-            <div className="flex items-center gap-5 text-xs font-semibold text-[#667799]">
+            <div className="flex items-center gap-5 text-xs font-semibold text-[#6284b3]">
               <a href="#rules" className="hover:text-[#c8a84b] transition-colors py-1">Rules</a>
               <a href="#register" className="hover:text-[#c8a84b] transition-colors py-1">Register</a>
               <a href="mailto:cit.inpt@gmail.com" className="hover:text-[#c8a84b] transition-colors py-1">Contact</a>
@@ -273,7 +273,7 @@ export default function Home() {
 
           {/* Bottom row */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6">
-            <p className="text-[10px] text-[#2a3555] text-center sm:text-left">
+            <p className="text-[10px] text-[#183c74] text-center sm:text-left">
               © {new Date().getFullYear()} Club Informatique &amp; Télécom — INPT Rabat
             </p>
           </div>

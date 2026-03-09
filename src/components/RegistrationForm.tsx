@@ -88,13 +88,13 @@ export default function RegistrationForm() {
           placeholder="e.g. Lambda Squad"
           value={formData.teamName}
           onChange={handleInputChange}
-          className="w-full bg-[#0c1428] border border-[#1e2d4a] rounded-lg p-3 text-[#eeeae0] focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all"
+          className="w-full bg-[#0a1c38] border border-[#1c4481] rounded-lg p-3 text-[#eeeae0] focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all"
         />
       </div>
 
       <div className="space-y-6">
         {/* Captain */}
-        <div className="bg-[#0c1428] p-4 sm:p-6 rounded-xl border border-[#1e2d4a]">
+        <div className="bg-[#0a1c38] p-4 sm:p-6 rounded-xl border border-[#1c4481]">
           <h3 className="text-base sm:text-lg font-bold text-white mb-4 flex items-center gap-2">
             <span className="bg-gold/10 text-gold px-3 py-1 rounded-full text-xs tracking-wider uppercase">Captain</span>
             Member 1 Details
@@ -128,9 +128,9 @@ export default function RegistrationForm() {
         </div>
 
         {/* Member 2 */}
-        <div className="bg-[#0c1428] p-4 sm:p-6 rounded-xl border border-[#1e2d4a]">
+        <div className="bg-[#0a1c38] p-4 sm:p-6 rounded-xl border border-[#1c4481]">
           <h3 className="text-base sm:text-lg font-bold text-white mb-4 flex items-center gap-2">
-            <span className="bg-[#1e2d4a] text-white/70 px-3 py-1 rounded-full text-xs tracking-wider uppercase">Member 2</span>
+            <span className="bg-[#1c4481] text-white/70 px-3 py-1 rounded-full text-xs tracking-wider uppercase">Member 2</span>
             Member 2 Details
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -162,9 +162,9 @@ export default function RegistrationForm() {
         </div>
 
         {/* Member 3 */}
-        <div className="bg-[#0c1428] p-4 sm:p-6 rounded-xl border border-[#1e2d4a]">
+        <div className="bg-[#0a1c38] p-4 sm:p-6 rounded-xl border border-[#1c4481]">
           <h3 className="text-base sm:text-lg font-bold text-white mb-4 flex items-center gap-2">
-             <span className="bg-[#1e2d4a] text-white/70 px-3 py-1 rounded-full text-xs tracking-wider uppercase">Member 3</span>
+             <span className="bg-[#1c4481] text-white/70 px-3 py-1 rounded-full text-xs tracking-wider uppercase">Member 3</span>
             Member 3 Details
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -196,7 +196,7 @@ export default function RegistrationForm() {
         </div>
       </div>
 
-      <div className="flex justify-end pt-6 border-t border-[#1e2d4a]">
+      <div className="flex justify-end pt-6 border-t border-[#1c4481]">
         <button
           type="button"
           onClick={handleNextStep}
@@ -215,7 +215,7 @@ export default function RegistrationForm() {
       exit={{ opacity: 0, x: -20 }}
       className="space-y-8"
     >
-      <div className="bg-[#1e2d4a]/30 border border-[#1e2d4a] p-5 rounded-lg text-sm text-[#eeeae0]/80">
+      <div className="bg-[#1c4481]/30 border border-[#1c4481] p-5 rounded-lg text-sm text-[#eeeae0]/80">
         <h4 className="font-bold text-white mb-2 text-base">Official Teams Only</h4>
         <p>Fill out this section if you are an official team. For non-official teams, you can skip the proof uploads.</p>
       </div>
@@ -235,7 +235,7 @@ export default function RegistrationForm() {
 
       <div className="space-y-6">
         {/* Captain School */}
-        <div className="bg-[#0c1428] p-6 rounded-xl border border-[#1e2d4a]">
+        <div className="bg-[#0a1c38] p-6 rounded-xl border border-[#1c4481]">
           <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
             <span className="bg-gold/10 text-gold px-3 py-1 rounded-full text-xs tracking-wider uppercase">Captain</span>
             School Details
@@ -247,21 +247,21 @@ export default function RegistrationForm() {
             </div>
             <div>
               <label className="block text-sm font-semibold mb-2 text-white">Proof of Enrollment</label>
-              <div className="border-2 border-dashed border-[#1e2d4a] rounded-lg p-8 text-center hover:border-gold/50 transition-colors cursor-pointer group">
-                <Upload className="w-8 h-8 mx-auto text-[#667799] group-hover:text-gold mb-3 transition-colors" />
-                <p className="text-sm text-[#667799]">
+              <div className="border-2 border-dashed border-[#1c4481] rounded-lg p-8 text-center hover:border-gold/50 transition-colors cursor-pointer group">
+                <Upload className="w-8 h-8 mx-auto text-[#6284b3] group-hover:text-gold mb-3 transition-colors" />
+                <p className="text-sm text-[#6284b3]">
                   <span className="text-gold font-semibold">Click to upload</span> or drag and drop
                 </p>
-                <p className="text-xs text-[#667799]/70 mt-1">PDF, JPG, PNG (Max 5MB)</p>
+                <p className="text-xs text-[#6284b3]/70 mt-1">PDF, JPG, PNG (Max 5MB)</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Member 2 School */}
-        <div className="bg-[#0c1428] p-6 rounded-xl border border-[#1e2d4a]">
+        <div className="bg-[#0a1c38] p-6 rounded-xl border border-[#1c4481]">
            <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-            <span className="bg-[#1e2d4a] text-white/70 px-3 py-1 rounded-full text-xs tracking-wider uppercase">Member 2</span>
+            <span className="bg-[#1c4481] text-white/70 px-3 py-1 rounded-full text-xs tracking-wider uppercase">Member 2</span>
             School Details
           </h3>
           <div className="space-y-4">
@@ -271,21 +271,21 @@ export default function RegistrationForm() {
             </div>
             <div>
               <label className="block text-sm font-semibold mb-2 text-white">Proof of Enrollment</label>
-              <div className="border-2 border-dashed border-[#1e2d4a] rounded-lg p-8 text-center hover:border-gold/50 transition-colors cursor-pointer group">
-                <Upload className="w-8 h-8 mx-auto text-[#667799] group-hover:text-gold mb-3 transition-colors" />
-                <p className="text-sm text-[#667799]">
+              <div className="border-2 border-dashed border-[#1c4481] rounded-lg p-8 text-center hover:border-gold/50 transition-colors cursor-pointer group">
+                <Upload className="w-8 h-8 mx-auto text-[#6284b3] group-hover:text-gold mb-3 transition-colors" />
+                <p className="text-sm text-[#6284b3]">
                   <span className="text-gold font-semibold">Click to upload</span> or drag and drop
                 </p>
-                <p className="text-xs text-[#667799]/70 mt-1">PDF, JPG, PNG (Max 5MB)</p>
+                <p className="text-xs text-[#6284b3]/70 mt-1">PDF, JPG, PNG (Max 5MB)</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Member 3 School */}
-        <div className="bg-[#0c1428] p-6 rounded-xl border border-[#1e2d4a]">
+        <div className="bg-[#0a1c38] p-6 rounded-xl border border-[#1c4481]">
           <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-            <span className="bg-[#1e2d4a] text-white/70 px-3 py-1 rounded-full text-xs tracking-wider uppercase">Member 3</span>
+            <span className="bg-[#1c4481] text-white/70 px-3 py-1 rounded-full text-xs tracking-wider uppercase">Member 3</span>
             School Details
           </h3>
           <div className="space-y-4">
@@ -295,23 +295,23 @@ export default function RegistrationForm() {
             </div>
             <div>
               <label className="block text-sm font-semibold mb-2 text-white">Proof of Enrollment</label>
-              <div className="border-2 border-dashed border-[#1e2d4a] rounded-lg p-8 text-center hover:border-gold/50 transition-colors cursor-pointer group">
-                <Upload className="w-8 h-8 mx-auto text-[#667799] group-hover:text-gold mb-3 transition-colors" />
-                <p className="text-sm text-[#667799]">
+              <div className="border-2 border-dashed border-[#1c4481] rounded-lg p-8 text-center hover:border-gold/50 transition-colors cursor-pointer group">
+                <Upload className="w-8 h-8 mx-auto text-[#6284b3] group-hover:text-gold mb-3 transition-colors" />
+                <p className="text-sm text-[#6284b3]">
                   <span className="text-gold font-semibold">Click to upload</span> or drag and drop
                 </p>
-                <p className="text-xs text-[#667799]/70 mt-1">PDF, JPG, PNG (Max 5MB)</p>
+                <p className="text-xs text-[#6284b3]/70 mt-1">PDF, JPG, PNG (Max 5MB)</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-6 border-t border-[#1e2d4a]">
+      <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-6 border-t border-[#1c4481]">
         <button
           type="button"
           onClick={() => setStep(1)}
-          className="text-[#667799] hover:text-white font-semibold flex items-center justify-center gap-2 transition-colors min-h-[48px] px-4 rounded border border-[#1e2d4a] hover:border-[#667799]"
+          className="text-[#6284b3] hover:text-white font-semibold flex items-center justify-center gap-2 transition-colors min-h-[48px] px-4 rounded border border-[#1c4481] hover:border-[#6284b3]"
         >
           <ChevronLeft className="w-4 h-4" /> Back to Step 1
         </button>
@@ -332,7 +332,7 @@ export default function RegistrationForm() {
         position: "fixed",
         inset: 0,
         zIndex: 9999,
-        background: "#03060f",
+        background: "#020611",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -357,7 +357,7 @@ export default function RegistrationForm() {
 
         {/* Title */}
         <h2 className="text-2xl sm:text-3xl font-outfit font-bold text-white mb-3">Registration Received!</h2>
-        <p className="text-[#667799] mb-8 text-sm sm:text-base leading-relaxed">
+        <p className="text-[#6284b3] mb-8 text-sm sm:text-base leading-relaxed">
           Your team <strong className="text-white">{formData.teamName || 'Details'}</strong> has been registered for the 20th edition of JNJD. We will contact the captain shortly.
         </p>
 
@@ -365,7 +365,7 @@ export default function RegistrationForm() {
         <div className="bg-gold/10 border border-gold/30 p-5 rounded-xl mb-8 text-left">
           <h4 className="text-gold font-bold mb-2 uppercase tracking-wider text-xs sm:text-sm">Payment Information</h4>
           <p className="text-[#eeeae0] text-sm">Participation fee: <strong>180 MAD</strong> per team.</p>
-          <p className="text-xs text-[#667799] mt-2">Payment via wire transfer or on-site on the day.</p>
+          <p className="text-xs text-[#6284b3] mt-2">Payment via wire transfer or on-site on the day.</p>
         </div>
 
         <button
@@ -384,15 +384,15 @@ export default function RegistrationForm() {
       {/* Progress Indicator */}
       {!isSuccess && (
         <div className="flex items-center justify-center mb-8 sm:mb-12">
-          <div className={`flex items-center ${step >= 1 ? 'text-gold' : 'text-[#667799]'}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 ${step === 1 ? 'bg-gold/10 border-2 border-gold' : step > 1 ? 'bg-gold text-[#03060f]' : 'border-2 border-[#1e2d4a]'}`}>
+          <div className={`flex items-center ${step >= 1 ? 'text-gold' : 'text-[#6284b3]'}`}>
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 ${step === 1 ? 'bg-gold/10 border-2 border-gold' : step > 1 ? 'bg-gold text-[#020611]' : 'border-2 border-[#1c4481]'}`}>
               {step > 1 ? <CheckCircle2 className="w-4 h-4" /> : '1'}
             </div>
             <span className="ml-2 sm:ml-3 font-semibold text-xs sm:text-sm tracking-wider uppercase">Team Details</span>
           </div>
-          <div className={`w-10 sm:w-20 h-px mx-3 sm:mx-4 ${step > 1 ? 'bg-gold' : 'bg-[#1e2d4a]'}`}></div>
-          <div className={`flex items-center ${step >= 2 ? 'text-gold' : 'text-[#667799]'}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 ${step === 2 ? 'bg-gold/10 border-2 border-gold' : 'border-2 border-[#1e2d4a]'}`}>
+          <div className={`w-10 sm:w-20 h-px mx-3 sm:mx-4 ${step > 1 ? 'bg-gold' : 'bg-[#1c4481]'}`}></div>
+          <div className={`flex items-center ${step >= 2 ? 'text-gold' : 'text-[#6284b3]'}`}>
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 ${step === 2 ? 'bg-gold/10 border-2 border-gold' : 'border-2 border-[#1c4481]'}`}>
               2
             </div>
             <span className="ml-2 sm:ml-3 font-semibold text-xs sm:text-sm tracking-wider uppercase">Verify Status</span>

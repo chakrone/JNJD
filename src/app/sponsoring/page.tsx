@@ -126,12 +126,12 @@ function FormulaCard({
       {...FADE_DELAY(delay)}
       className={`relative flex flex-col p-8 rounded-2xl border overflow-hidden transition-transform duration-300 hover:-translate-y-2 ${
         featured
-          ? "border-[#c9a84c] bg-gradient-to-br from-[#c9a84c]/6 to-[#162040]"
-          : "border-[rgba(201,168,76,0.18)] bg-[#162040]"
+          ? "border-[#c9a84c] bg-gradient-to-br from-[#c9a84c]/6 to-[#112b55]"
+          : "border-[rgba(201,168,76,0.18)] bg-[#112b55]"
       }`}
     >
       {featured && (
-        <div className="absolute top-5 right-5 bg-gradient-to-r from-[#c9a84c] to-[#e8c96a] text-[#040810] text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded shadow-lg flex items-center gap-1">
+        <div className="absolute top-5 right-5 bg-gradient-to-r from-[#c9a84c] to-[#e8c96a] text-[#030816] text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded shadow-lg flex items-center gap-1">
           <span className="text-[12px] leading-none mb-[1px]">★</span> Recommandé
         </div>
       )}
@@ -141,7 +141,7 @@ function FormulaCard({
       </div>
       <div className={`font-outfit text-4xl font-extrabold leading-none mb-1 ${priceColor}`}>
         {price}
-        <span className="text-base font-semibold text-[#8a9abb] ml-1">DH</span>
+        <span className="text-base font-semibold text-[#8caede] ml-1">DH</span>
       </div>
       <div className="w-full h-px bg-[rgba(201,168,76,0.18)] my-5"></div>
       <ul className="space-y-2 flex-1">
@@ -169,21 +169,21 @@ export default function SponsoringPage() {
   const pastSponsors = ["SAFRAN", "CGI", "DXC Technology", "CDG", "ERICSSON", "La Marocaine Vie", "HP", "INWI", "ANRT", "Orange", "MCHAIN", "SNRT", "IT Road Group", "XHub", "Société Générale", "UBISOFT", "MACS", "Sekera", "Nucleon"];
 
   return (
-    <main className="min-h-screen text-[#f4f0e8] bg-[#040810] overflow-x-hidden">
+    <main className="min-h-screen text-[#f4f0e8] bg-[#030816] overflow-x-hidden">
       {/* NAV */}
-      <nav className="fixed top-0 inset-x-0 z-50 flex items-center justify-center sm:justify-between h-16 px-6 lg:px-12 bg-[#040810]/85 backdrop-blur-xl border-b border-[rgba(201,168,76,0.18)]">
+      <nav className="fixed top-0 inset-x-0 z-50 flex items-center justify-center sm:justify-between h-16 px-6 lg:px-12 bg-[#030816]/85 backdrop-blur-xl border-b border-[rgba(201,168,76,0.18)]">
         <a href="#hero" className="flex items-center gap-3 no-underline">
           <Image src="/assets/Logo BW 2.png" alt="JNJD" width={32} height={32} className="opacity-90" />
           <span className="w-px h-6 bg-[rgba(201,168,76,0.18)] hidden sm:block"></span>
-          <span className="text-xs font-semibold text-[#8a9abb] tracking-widest hidden sm:block">Dossier Sponsoring · 20ème Édition</span>
+          <span className="text-xs font-semibold text-[#8caede] tracking-widest hidden sm:block">Dossier Sponsoring · 20ème Édition</span>
         </a>
         <div className="hidden sm:flex items-center gap-6">
-          <a href="#formulas" className="hidden md:block text-sm font-semibold text-[#8a9abb] hover:text-[#c9a84c] transition-colors">Formules</a>
-          <a href="#contact" className="hidden md:block text-sm font-semibold text-[#8a9abb] hover:text-[#c9a84c] transition-colors">Contact</a>
+          <a href="#formulas" className="hidden md:block text-sm font-semibold text-[#8caede] hover:text-[#c9a84c] transition-colors">Formules</a>
+          <a href="#contact" className="hidden md:block text-sm font-semibold text-[#8caede] hover:text-[#c9a84c] transition-colors">Contact</a>
           <a
             href="DS-JNJD.pdf"
             download
-            className="hidden sm:flex text-xs font-outfit font-bold uppercase tracking-widest px-5 py-2 border border-[#c9a84c] text-[#c9a84c] rounded hover:bg-[#c9a84c] hover:text-[#040810] transition-all items-center gap-2"
+            className="hidden sm:flex text-xs font-outfit font-bold uppercase tracking-widest px-5 py-2 border border-[#c9a84c] text-[#c9a84c] rounded hover:bg-[#c9a84c] hover:text-[#030816] transition-all items-center gap-2"
           >
             <Download className="w-3.5 h-3.5" /> PDF
           </a>
@@ -210,7 +210,7 @@ export default function SponsoringPage() {
             <span className="text-[#c9a84c] drop-shadow-[0_0_30px_rgba(201,168,76,0.3)]">JNJD</span>
           </motion.h1>
 
-          <motion.p {...FADE_DELAY(0.15)} className="font-outfit text-base font-semibold tracking-[0.18em] uppercase text-[#8a9abb] mb-2">
+          <motion.p {...FADE_DELAY(0.15)} className="font-outfit text-base font-semibold tracking-[0.18em] uppercase text-[#8caede] mb-2">
             Journées Nationales des Jeunes Développeurs
           </motion.p>
 
@@ -229,7 +229,7 @@ export default function SponsoringPage() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-10 flex flex-col items-center gap-2 text-[#8a9abb]"
+          className="absolute bottom-10 flex flex-col items-center gap-2 text-[#8caede]"
         >
           <span className="text-[10px] uppercase tracking-[0.2em] font-bold">Découvrir</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg>
@@ -237,7 +237,7 @@ export default function SponsoringPage() {
       </section>
 
       {/* STATS BAR */}
-      <div className="bg-[#0d1628] border-y border-[rgba(201,168,76,0.18)] py-10 px-6">
+      <div className="bg-[#07172e] border-y border-[rgba(201,168,76,0.18)] py-10 px-6">
         <div className="max-w-4xl mx-auto flex flex-wrap justify-center divide-x divide-[rgba(201,168,76,0.18)]">
           {[
             { target: 20, suffix: "ème", label: "Éditions" },
@@ -249,7 +249,7 @@ export default function SponsoringPage() {
               <span className="block font-outfit text-4xl md:text-5xl font-extrabold text-[#c9a84c] leading-none mb-1">
                 <AnimatedCounter target={s.target} suffix={s.suffix} />
               </span>
-              <span className="text-[10px] font-semibold uppercase tracking-widest text-[#8a9abb]">{s.label}</span>
+              <span className="text-[10px] font-semibold uppercase tracking-widest text-[#8caede]">{s.label}</span>
             </div>
           ))}
         </div>
@@ -286,14 +286,14 @@ export default function SponsoringPage() {
               <motion.div
                 key={card.label}
                 {...FADE_DELAY(i * 0.1)}
-                className="relative bg-[#162040] border border-[rgba(201,168,76,0.18)] p-10 hover:border-[rgba(201,168,76,0.45)] transition-colors group overflow-hidden"
+                className="relative bg-[#112b55] border border-[rgba(201,168,76,0.18)] p-10 hover:border-[rgba(201,168,76,0.45)] transition-colors group overflow-hidden"
               >
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#c9a84c] to-transparent"></div>
                 <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#c9a84c] mb-5">
                   {card.icon} {card.label}
                 </div>
                 <h3 className="font-outfit text-2xl font-bold mb-4 leading-tight">{card.title}</h3>
-                <p className="text-[#8a9abb] text-sm leading-relaxed mb-6">{card.desc}</p>
+                <p className="text-[#8caede] text-sm leading-relaxed mb-6">{card.desc}</p>
                 <ul className="space-y-2.5">
                   {card.pillars.map((p) => (
                     <li key={p} className="flex items-start gap-3 text-sm text-white">
@@ -309,7 +309,7 @@ export default function SponsoringPage() {
       </section>
 
       {/* ACTIVITIES */}
-      <section id="activities" className="py-24 px-6 bg-[#040810]">
+      <section id="activities" className="py-24 px-6 bg-[#030816]">
         <div className="max-w-6xl mx-auto">
           <motion.p {...FADE_IN} className="text-xs font-bold uppercase tracking-[0.2em] text-[#c9a84c] mb-4 flex items-center gap-3">
             <span className="w-7 h-px bg-[#c9a84c]"></span> Programme
@@ -327,11 +327,11 @@ export default function SponsoringPage() {
               <motion.div
                 key={a.num}
                 {...FADE_DELAY(i * 0.08)}
-                className="relative border border-[rgba(201,168,76,0.18)] p-8 bg-gradient-to-br from-[#162040] to-[#0d1628] rounded-xl hover:-translate-y-1.5 transition-all duration-300 hover:border-[rgba(201,168,76,0.45)] hover:shadow-2xl overflow-hidden"
+                className="relative border border-[rgba(201,168,76,0.18)] p-8 bg-gradient-to-br from-[#112b55] to-[#07172e] rounded-xl hover:-translate-y-1.5 transition-all duration-300 hover:border-[rgba(201,168,76,0.45)] hover:shadow-2xl overflow-hidden"
               >
                 <span className="absolute top-4 right-4 font-outfit text-5xl font-extrabold text-[rgba(201,168,76,0.07)] leading-none">{a.num}</span>
                 <p className="text-xs font-bold uppercase tracking-widest text-[#c9a84c] mb-3">{a.title}</p>
-                <p className="text-sm text-[#8a9abb] leading-relaxed">{a.desc}</p>
+                <p className="text-sm text-[#8caede] leading-relaxed">{a.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -339,7 +339,7 @@ export default function SponsoringPage() {
       </section>
 
       {/* THEME */}
-      <section id="theme" className="py-24 px-6 bg-gradient-to-br from-[#0d1628] to-[#040810] border-y border-[rgba(201,168,76,0.18)]">
+      <section id="theme" className="py-24 px-6 bg-gradient-to-br from-[#07172e] to-[#030816] border-y border-[rgba(201,168,76,0.18)]">
         <div className="max-w-6xl mx-auto">
           <motion.p {...FADE_IN} className="text-xs font-bold uppercase tracking-[0.2em] text-[#c9a84c] mb-4 flex items-center gap-3">
             <span className="w-7 h-px bg-[#c9a84c]"></span> Thème 2026
@@ -348,7 +348,7 @@ export default function SponsoringPage() {
             &quot;The Agentic Shift:<br /><span className="text-[#c9a84c]">Building Systems That Think, Act, and Adapt&quot;</span>
           </motion.blockquote>
           <div className="grid md:grid-cols-2 gap-12">
-            <motion.div {...FADE_DELAY(0.1)} className="space-y-4 text-[#8a9abb] text-base leading-relaxed">
+            <motion.div {...FADE_DELAY(0.1)} className="space-y-4 text-[#8caede] text-base leading-relaxed">
               <p>Nous sommes à l'aube d'une transformation fondamentale du logiciel. La frontière du développement est désormais définie par les systèmes agentiques — des programmes qui perçoivent, raisonnent, planifient et exécutent, autonomement, en boucles, à grande échelle.</p>
               <p>Des frameworks comme LangGraph, AutoGen et CrewAI sont devenus mainstream. OpenAI, Anthropic, Google et Meta ont tous placé l'agentivité au cœur de leurs plateformes.</p>
               <p>La JNJD 2026 confronte les participants à sa réalité technique : comment concevoir des systèmes qui prennent des décisions ? Comment intégrer confiance, observabilité et contrôle dans quelque chose qui agit seul ?</p>
@@ -365,7 +365,7 @@ export default function SponsoringPage() {
       </section>
 
       {/* WHY SPONSOR */}
-      <section id="why" className="py-24 px-6 bg-[#040810]">
+      <section id="why" className="py-24 px-6 bg-[#030816]">
         <div className="max-w-6xl mx-auto">
           <motion.p {...FADE_IN} className="text-xs font-bold uppercase tracking-[0.2em] text-[#c9a84c] mb-4 flex items-center gap-3">
             <span className="w-7 h-px bg-[#c9a84c]"></span> Pourquoi nous rejoindre
@@ -385,14 +385,14 @@ export default function SponsoringPage() {
               <motion.div
                 key={w.num}
                 {...FADE_DELAY(i * 0.07)}
-                className="p-8 bg-[#0d1628] border border-[rgba(201,168,76,0.18)] hover:bg-[#162040] hover:border-[rgba(201,168,76,0.4)] transition-all group"
+                className="p-8 bg-[#07172e] border border-[rgba(201,168,76,0.18)] hover:bg-[#112b55] hover:border-[rgba(201,168,76,0.4)] transition-all group"
               >
                 <div className="text-[10px] font-extrabold tracking-[0.2em] text-[#c9a84c] mb-4">{w.num}</div>
                 <div className="flex items-center gap-2 text-[#c9a84c] mb-3">{w.icon}</div>
                 <h3 className="font-outfit text-sm font-bold uppercase tracking-wide mb-4 leading-snug">{w.title}</h3>
                 <ul className="space-y-2">
                   {w.points.map((p) => (
-                    <li key={p} className="text-sm text-[#8a9abb] flex gap-2.5">
+                    <li key={p} className="text-sm text-[#8caede] flex gap-2.5">
                       <span className="text-[#c9a84c] text-xs mt-0.5 flex-shrink-0">→</span> {p}
                     </li>
                   ))}
@@ -404,7 +404,7 @@ export default function SponsoringPage() {
       </section>
 
       {/* FORMULAS */}
-      <section id="formulas" className="py-24 px-6 bg-gradient-to-b from-[#0d1628] to-[#040810]">
+      <section id="formulas" className="py-24 px-6 bg-gradient-to-b from-[#07172e] to-[#030816]">
         <div className="max-w-6xl mx-auto">
           <motion.p {...FADE_IN} className="text-xs font-bold uppercase tracking-[0.2em] text-[#c9a84c] mb-4 flex items-center gap-3">
             <span className="w-7 h-px bg-[#c9a84c]"></span> Partenariat
@@ -412,26 +412,26 @@ export default function SponsoringPage() {
           <motion.h2 {...FADE_DELAY(0.05)} className="font-outfit text-4xl md:text-5xl font-extrabold tracking-tight mb-3">
             Formules de <span className="text-[#c9a84c]">Sponsoring</span>
           </motion.h2>
-          <motion.p {...FADE_DELAY(0.1)} className="text-[#8a9abb] mb-12 max-w-xl">Choisissez le niveau d'engagement qui correspond à votre ambition.</motion.p>
+          <motion.p {...FADE_DELAY(0.1)} className="text-[#8caede] mb-12 max-w-xl">Choisissez le niveau d'engagement qui correspond à votre ambition.</motion.p>
 
           <div className="grid lg:grid-cols-3 gap-5 mb-8">
-            <FormulaCard badge="Platinum" badgeColor="text-[#e8e8f0]" price="30 000" priceColor="text-[#c9a84c]" features={PLATINUM_FEATURES} ctaText="Devenir Platinum" ctaClass="bg-[#c9a84c] text-[#040810] hover:bg-[#e8c96a]" featured delay={0} />
+            <FormulaCard badge="Platinum" badgeColor="text-[#e8e8f0]" price="30 000" priceColor="text-[#c9a84c]" features={PLATINUM_FEATURES} ctaText="Devenir Platinum" ctaClass="bg-[#c9a84c] text-[#030816] hover:bg-[#e8c96a]" featured delay={0} />
             <FormulaCard badge="Gold" badgeColor="text-[#c9a84c]" price="20 000" priceColor="text-[#f5e4a8]" features={GOLD_FEATURES} ctaText="Devenir Gold" ctaClass="border border-[#c9a84c] text-[#c9a84c] hover:bg-[rgba(201,168,76,0.1)]" delay={0.1} />
             <FormulaCard badge="Silver" badgeColor="text-[#aab0be]" price="10 000" priceColor="text-[#aab0be]" features={SILVER_FEATURES} ctaText="Devenir Silver" ctaClass="border border-[#aab0be] text-[#aab0be] hover:bg-[rgba(170,176,190,0.08)]" delay={0.2} />
           </div>
 
           {/* Startup Card */}
-          <motion.div {...FADE_DELAY(0.25)} className="flex flex-col md:flex-row gap-10 items-center border border-[rgba(201,168,76,0.18)] bg-gradient-to-br from-[#162040] to-[#0d1628] rounded-2xl p-10 hover:border-[rgba(201,168,76,0.4)] transition-colors">
+          <motion.div {...FADE_DELAY(0.25)} className="flex flex-col md:flex-row gap-10 items-center border border-[rgba(201,168,76,0.18)] bg-gradient-to-br from-[#112b55] to-[#07172e] rounded-2xl p-10 hover:border-[rgba(201,168,76,0.4)] transition-colors">
             <div className="text-center flex-shrink-0">
               <div className="inline-block border border-[#c9a84c] text-[#c9a84c] font-outfit text-[10px] font-bold tracking-[0.2em] uppercase px-4 py-1.5 rounded mb-4">Startup Partner</div>
               <div className="font-outfit text-5xl font-extrabold text-[#c9a84c] leading-none">5 000</div>
-              <div className="text-xs font-semibold uppercase tracking-widest text-[#8a9abb] mt-1">DH</div>
+              <div className="text-xs font-semibold uppercase tracking-widest text-[#8caede] mt-1">DH</div>
             </div>
             <div className="flex-1">
               <h3 className="font-outfit text-lg font-bold text-[#c9a84c] mb-5">Formule Startup — Recrutement & Visibilité</h3>
               <div className="grid sm:grid-cols-2 gap-3">
                 {["Stand recrutement dédié — stages & embauche", "Publication dédiée sur LinkedIn, Instagram, Facebook", "Logo sur tous les imprimés de l'événement", "Logo sur les pages et publications de l'événement", "Logo sur le T-shirt officiel", "Présence d'un représentant aux conférences"].map((f) => (
-                  <div key={f} className="flex items-start gap-2 text-sm text-[#8a9abb]">
+                  <div key={f} className="flex items-start gap-2 text-sm text-[#8caede]">
                     <span className="text-[#c9a84c] text-xs mt-0.5 flex-shrink-0">✦</span> {f}
                   </div>
                 ))}
@@ -445,7 +445,7 @@ export default function SponsoringPage() {
       </section>
 
       {/* SCHOOLS */}
-      <section id="schools" className="py-24 px-6 bg-[#0d1628] border-y border-[rgba(201,168,76,0.18)]">
+      <section id="schools" className="py-24 px-6 bg-[#07172e] border-y border-[rgba(201,168,76,0.18)]">
         <div className="max-w-6xl mx-auto">
           <motion.p {...FADE_IN} className="text-xs font-bold uppercase tracking-[0.2em] text-[#c9a84c] mb-4 flex items-center gap-3">
             <span className="w-7 h-px bg-[#c9a84c]"></span> Écoles participantes
@@ -456,7 +456,7 @@ export default function SponsoringPage() {
           <div className="w-14 h-0.5 bg-gradient-to-r from-[#c9a84c] to-transparent mt-5 mb-12"></div>
           <motion.div {...FADE_DELAY(0.1)} className="flex flex-wrap gap-2.5">
             {schools.map((s) => (
-              <span key={s} className="text-xs font-semibold tracking-wide px-3.5 py-2 border border-[rgba(201,168,76,0.18)] text-[#8a9abb] bg-[#162040] rounded hover:border-[#c9a84c] hover:text-[#c9a84c] transition-all cursor-default">
+              <span key={s} className="text-xs font-semibold tracking-wide px-3.5 py-2 border border-[rgba(201,168,76,0.18)] text-[#8caede] bg-[#112b55] rounded hover:border-[#c9a84c] hover:text-[#c9a84c] transition-all cursor-default">
                 {s}
               </span>
             ))}
@@ -465,7 +465,7 @@ export default function SponsoringPage() {
       </section>
 
       {/* PAST SPONSORS */}
-      <section id="trust" className="py-24 px-6 bg-[#040810]">
+      <section id="trust" className="py-24 px-6 bg-[#030816]">
         <div className="max-w-6xl mx-auto">
           <motion.p {...FADE_IN} className="text-xs font-bold uppercase tracking-[0.2em] text-[#c9a84c] mb-4 flex items-center gap-3">
             <span className="w-7 h-px bg-[#c9a84c]"></span> Confiance établie
@@ -473,10 +473,10 @@ export default function SponsoringPage() {
           <motion.h2 {...FADE_DELAY(0.05)} className="font-outfit text-4xl md:text-5xl font-extrabold tracking-tight mb-3">
             Ils nous ont <span className="text-[#c9a84c]">fait confiance</span>
           </motion.h2>
-          <motion.p {...FADE_DELAY(0.1)} className="text-[#8a9abb] mb-12">Des entreprises qui ont choisi la JNJD pour rencontrer les talents technologiques du Maroc.</motion.p>
+          <motion.p {...FADE_DELAY(0.1)} className="text-[#8caede] mb-12">Des entreprises qui ont choisi la JNJD pour rencontrer les talents technologiques du Maroc.</motion.p>
           <motion.div {...FADE_DELAY(0.15)} className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-px">
             {pastSponsors.map((s) => (
-              <div key={s} className="border border-[rgba(201,168,76,0.18)] flex items-center justify-center text-center p-5 min-h-[72px] bg-[#0d1628] text-xs font-bold tracking-normal text-[#8a9abb] hover:bg-[#162040] hover:text-[#c9a84c] transition-all cursor-default">
+              <div key={s} className="border border-[rgba(201,168,76,0.18)] flex items-center justify-center text-center p-5 min-h-[72px] bg-[#07172e] text-xs font-bold tracking-normal text-[#8caede] hover:bg-[#112b55] hover:text-[#c9a84c] transition-all cursor-default">
                 {s}
               </div>
             ))}
@@ -485,7 +485,7 @@ export default function SponsoringPage() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="py-24 px-6 bg-gradient-to-b from-[#040810] to-[#020508] border-t border-[rgba(201,168,76,0.18)]">
+      <section id="contact" className="py-24 px-6 bg-gradient-to-b from-[#030816] to-[#01040b] border-t border-[rgba(201,168,76,0.18)]">
         <div className="max-w-6xl mx-auto">
           <motion.p {...FADE_IN} className="text-xs font-bold uppercase tracking-[0.2em] text-[#c9a84c] mb-4 flex items-center gap-3">
             <span className="w-7 h-px bg-[#c9a84c]"></span> Rejoignez-nous
@@ -493,7 +493,7 @@ export default function SponsoringPage() {
           <motion.h2 {...FADE_DELAY(0.05)} className="font-outfit text-4xl md:text-5xl font-extrabold tracking-tight mb-3">
             Prenons <span className="text-[#c9a84c]">contact</span>
           </motion.h2>
-          <motion.p {...FADE_DELAY(0.1)} className="text-[#8a9abb] max-w-xl mb-12">
+          <motion.p {...FADE_DELAY(0.1)} className="text-[#8caede] max-w-xl mb-12">
             Rejoignez la 20ème édition de la JNJD et positionnez votre organisation au cœur de l&apos;innovation technologique marocaine.
           </motion.p>
 
@@ -505,16 +505,16 @@ export default function SponsoringPage() {
               <motion.div
                 key={c.name}
                 {...FADE_DELAY(i * 0.1)}
-                className="relative border border-[rgba(201,168,76,0.18)] p-10 bg-[#0d1628] rounded-xl hover:border-[rgba(201,168,76,0.45)] transition-colors overflow-hidden"
+                className="relative border border-[rgba(201,168,76,0.18)] p-10 bg-[#07172e] rounded-xl hover:border-[rgba(201,168,76,0.45)] transition-colors overflow-hidden"
               >
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#c9a84c] to-transparent"></div>
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#c9a84c] mb-2">{c.role}</p>
                 <p className="font-outfit text-2xl font-bold mb-6">{c.name}</p>
                 <div className="space-y-3">
-                  <a href={`mailto:${c.email}`} className="flex items-center gap-3 text-[#8a9abb] hover:text-[#c9a84c] transition-colors text-sm">
+                  <a href={`mailto:${c.email}`} className="flex items-center gap-3 text-[#8caede] hover:text-[#c9a84c] transition-colors text-sm">
                     <Mail className="w-4 h-4 stroke-[#c9a84c] flex-shrink-0" /> {c.email}
                   </a>
-                  <a href={`tel:${c.phone.replace(/\s/g, "")}`} className="flex items-center gap-3 text-[#8a9abb] hover:text-[#c9a84c] transition-colors text-sm">
+                  <a href={`tel:${c.phone.replace(/\s/g, "")}`} className="flex items-center gap-3 text-[#8caede] hover:text-[#c9a84c] transition-colors text-sm">
                     <Phone className="w-4 h-4 stroke-[#c9a84c] flex-shrink-0" /> {c.phone}
                   </a>
                 </div>
@@ -523,8 +523,8 @@ export default function SponsoringPage() {
           </div>
 
           <motion.div {...FADE_DELAY(0.2)} className="text-center">
-            <p className="text-[#8a9abb] text-sm mb-2">Ou écrivez-nous à <a href="mailto:cit.inpt@gmail.com" className="text-[#c9a84c] hover:underline">cit.inpt@gmail.com</a></p>
-            <p className="text-[#8a9abb] italic text-sm mb-6">Partagez le dossier de sponsoring avec votre équipe</p>
+            <p className="text-[#8caede] text-sm mb-2">Ou écrivez-nous à <a href="mailto:cit.inpt@gmail.com" className="text-[#c9a84c] hover:underline">cit.inpt@gmail.com</a></p>
+            <p className="text-[#8caede] italic text-sm mb-6">Partagez le dossier de sponsoring avec votre équipe</p>
             <a href="DS-JNJD.pdf" download className="btn-primary">
               <Download className="w-4 h-4" /> Télécharger le Dossier PDF
             </a>
@@ -533,21 +533,21 @@ export default function SponsoringPage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-[rgba(201,168,76,0.18)] bg-[#040810] py-10 px-6">
+      <footer className="border-t border-[rgba(201,168,76,0.18)] bg-[#030816] py-10 px-6">
         <div className="max-w-6xl mx-auto flex flex-col items-center gap-6">
           <div className="w-full flex flex-col md:flex-row items-center justify-between gap-5">
             <div className="flex items-center gap-3">
               <Image src="/assets/Logo BW 2.png" alt="JNJD" width={26} height={26} className="opacity-70" />
               <div className="font-outfit text-sm font-extrabold tracking-wider text-[#c9a84c]">· 20ÈME ÉDITION · 2026</div>
             </div>
-            <div className="flex gap-6 text-xs font-semibold uppercase tracking-widest text-[#8a9abb]">
+            <div className="flex gap-6 text-xs font-semibold uppercase tracking-widest text-[#8caede]">
               <a href="#formulas" className="hover:text-[#c9a84c] transition-colors">Formules</a>
               <a href="#contact" className="hover:text-[#c9a84c] transition-colors">Contact</a>
               <a href="https://jnjd.vercel.app" className="hover:text-[#c9a84c] transition-colors">Inscription</a>
             </div>
             <Image src="/assets/Cit-Hor.png" alt="Club Informatique & Télécom" width={110} height={36} className="opacity-75" />
           </div>
-          <p className="text-[10px] text-[#2a3555]">© 2026 Club Informatique &amp; Télécom — INPT</p>
+          <p className="text-[10px] text-[#183c74]">© 2026 Club Informatique &amp; Télécom — INPT</p>
         </div>
       </footer>
     </main>
