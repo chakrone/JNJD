@@ -52,53 +52,40 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
   return <span ref={ref}>0{suffix}</span>;
 }
 
-const PLATINUM_FEATURES = [
-  { active: true, text: 'Mention "Sponsor Officiel" durant les conférences' },
-  { active: true, text: "Accès base de données participants (Talent Scouting)" },
-  { active: true, text: "Stand de recrutement dédié" },
-  { active: true, text: "Logo prioritaire sur tous les supports" },
-  { active: true, text: "Commercialisation de produits/services" },
-  { active: true, text: "Accès zone VIP pour votre délégation" },
-  { active: true, text: "Accompagnement dédié tout au long" },
-  { active: true, text: "Médiatisation sur tous les réseaux du club" },
-  { active: true, text: "Représentant aux conférences" },
-  { active: true, text: "Logo sur le T-shirt officiel" },
-  { active: true, text: "Publicité sur les écrans (compétition)" },
-  { active: true, text: "Logo réseaux sociaux de l'événement" },
-  { active: true, text: "Logo sur tous les imprimés" },
+// Unified 18-row feature matrix (order matters — same rows across all tiers)
+const ALL_FEATURES = [
+  "Logo sur badge officiel des participants",
+  "Logo sur la page de garde du problem set",
+  "Post de remerciement dédié",
+  "Diffusion d'une vidéo promotionnelle",
+  "Discours de 5 min à l'ouverture",
+  "Co-branding de l'événement",
+  "Possibilité de proposer une problématique personnalisée",
+  "L'honneur de remettre les prix aux gagnants",
+  "Logo sur la plateforme d'inscription",
+  "Accès anticipé à la CVthèque",
+  "Mention du nom lors des conférences",
+  "Accès CVthèque via Talent Scouting",
+  "Médiatisation sur les réseaux du club",
+  "Stand de recrutement ou commercialisation",
+  "Accès zone VIP pour votre délégation",
+  "Accompagnement par un membre dédié",
+  "Logo sur les réseaux de l'événement",
+  "Logo sur tous les imprimés (affiches, t-shirts…)",
 ];
 
-const GOLD_FEATURES = [
-  { active: false, text: 'Mention "Sponsor Officiel"' },
-  { active: false, text: "Accès base de données participants" },
-  { active: false, text: "Stand de recrutement dédié" },
-  { active: false, text: "Logo prioritaire" },
-  { active: true, text: "Commercialisation de produits/services" },
-  { active: true, text: "Accès zone VIP" },
-  { active: true, text: "Accompagnement dédié" },
-  { active: true, text: "Médiatisation réseaux du club" },
-  { active: true, text: "Représentant aux conférences" },
-  { active: true, text: "Logo sur le T-shirt officiel" },
-  { active: true, text: "Publicité sur les écrans" },
-  { active: true, text: "Logo réseaux sociaux" },
-  { active: true, text: "Logo sur tous les imprimés" },
-];
+const OFFICIEL_ACTIVE = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
+const PLATINUM_ACTIVE = [false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, true];
+const GOLD_ACTIVE =    [false, false, false, false, false, false, false, false, false, false, true, true, true, true, true, true, true, true];
+const SILVER_ACTIVE =  [false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true];
 
-const SILVER_FEATURES = [
-  { active: false, text: 'Mention "Sponsor Officiel"' },
-  { active: false, text: "Accès base de données participants" },
-  { active: false, text: "Stand de recrutement dédié" },
-  { active: false, text: "Logo prioritaire" },
-  { active: false, text: "Commercialisation produits/services" },
-  { active: false, text: "Accès zone VIP" },
-  { active: false, text: "Accompagnement dédié" },
-  { active: false, text: "Médiatisation réseaux du club" },
-  { active: true, text: "Représentant aux conférences" },
-  { active: true, text: "Logo sur le T-shirt officiel" },
-  { active: true, text: "Publicité sur les écrans" },
-  { active: true, text: "Logo réseaux sociaux" },
-  { active: true, text: "Logo sur tous les imprimés" },
-];
+const makeFeatures = (activeArr: boolean[]) =>
+  ALL_FEATURES.map((text, i) => ({ active: activeArr[i], text }));
+
+const OFFICIEL_FEATURES = makeFeatures(OFFICIEL_ACTIVE);
+const PLATINUM_FEATURES = makeFeatures(PLATINUM_ACTIVE);
+const GOLD_FEATURES     = makeFeatures(GOLD_ACTIVE);
+const SILVER_FEATURES   = makeFeatures(SILVER_ACTIVE);
 
 function FormulaCard({
   badge,
@@ -414,33 +401,40 @@ export default function SponsoringPage() {
           </motion.h2>
           <motion.p {...FADE_DELAY(0.1)} className="text-[#8caede] mb-12 max-w-xl">Choisissez le niveau d'engagement qui correspond à votre ambition.</motion.p>
 
-          <div className="grid lg:grid-cols-3 gap-5 mb-8">
-            <FormulaCard badge="Platinum" badgeColor="text-[#e8e8f0]" price="30 000" priceColor="text-[#c9a84c]" features={PLATINUM_FEATURES} ctaText="Devenir Platinum" ctaClass="bg-[#c9a84c] text-[#030816] hover:bg-[#e8c96a]" featured delay={0} />
-            <FormulaCard badge="Gold" badgeColor="text-[#c9a84c]" price="20 000" priceColor="text-[#f5e4a8]" features={GOLD_FEATURES} ctaText="Devenir Gold" ctaClass="border border-[#c9a84c] text-[#c9a84c] hover:bg-[rgba(201,168,76,0.1)]" delay={0.1} />
-            <FormulaCard badge="Silver" badgeColor="text-[#aab0be]" price="10 000" priceColor="text-[#aab0be]" features={SILVER_FEATURES} ctaText="Devenir Silver" ctaClass="border border-[#aab0be] text-[#aab0be] hover:bg-[rgba(170,176,190,0.08)]" delay={0.2} />
-          </div>
-
-          {/* Startup Card */}
-          <motion.div {...FADE_DELAY(0.25)} className="flex flex-col md:flex-row gap-10 items-center border border-[rgba(201,168,76,0.18)] bg-gradient-to-br from-[#112b55] to-[#07172e] rounded-2xl p-10 hover:border-[rgba(201,168,76,0.4)] transition-colors">
-            <div className="text-center flex-shrink-0">
-              <div className="inline-block border border-[#c9a84c] text-[#c9a84c] font-outfit text-[10px] font-bold tracking-[0.2em] uppercase px-4 py-1.5 rounded mb-4">Startup Partner</div>
-              <div className="font-outfit text-5xl font-extrabold text-[#c9a84c] leading-none">5 000</div>
+          {/* Officiel Banner */}
+          <motion.div {...FADE_DELAY(0)} className="relative flex flex-col md:flex-row gap-8 items-center border-2 border-[#c9a84c] bg-gradient-to-br from-[#1c2a10] via-[#112b55] to-[#07172e] rounded-2xl p-8 mb-6 overflow-hidden hover:shadow-[0_0_40px_rgba(201,168,76,0.15)] transition-all">
+            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#c9a84c] via-[#e8c96a] to-[#c9a84c]" />
+            <div className="absolute top-4 right-5 bg-gradient-to-r from-[#c9a84c] to-[#e8c96a] text-[#030816] text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded shadow-lg flex items-center gap-1">
+              <span className="text-[12px] leading-none mb-[1px]">★</span> Sponsor Officiel
+            </div>
+            <div className="text-center flex-shrink-0 min-w-[160px]">
+              <div className="flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#c9a84c] mb-3">
+                <span className="w-2 h-2 rounded-full bg-[#c9a84c] shadow-[0_0_8px_#c9a84c]" />Officiel
+              </div>
+              <div className="font-outfit text-5xl font-extrabold text-[#c9a84c] leading-none drop-shadow-[0_0_20px_rgba(201,168,76,0.4)]">40 000</div>
               <div className="text-xs font-semibold uppercase tracking-widest text-[#8caede] mt-1">DH</div>
             </div>
+            <div className="w-px self-stretch bg-[rgba(201,168,76,0.2)] hidden md:block" />
             <div className="flex-1">
-              <h3 className="font-outfit text-lg font-bold text-[#c9a84c] mb-5">Formule Startup — Recrutement & Visibilité</h3>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {["Stand recrutement dédié — stages & embauche", "Publication dédiée sur LinkedIn, Instagram, Facebook", "Logo sur tous les imprimés de l'événement", "Logo sur les pages et publications de l'événement", "Logo sur le T-shirt officiel", "Présence d'un représentant aux conférences"].map((f) => (
-                  <div key={f} className="flex items-start gap-2 text-sm text-[#8caede]">
-                    <span className="text-[#c9a84c] text-xs mt-0.5 flex-shrink-0">✦</span> {f}
+              <div className="grid sm:grid-cols-2 gap-2.5">
+                {OFFICIEL_FEATURES.map((f, i) => (
+                  <div key={i} className="flex items-start gap-2 text-sm text-[#f4f0e8]">
+                    <span className="text-[#c9a84c] text-xs mt-0.5 flex-shrink-0">✦</span> {f.text}
                   </div>
                 ))}
               </div>
-              <a href="#contact" className="inline-flex items-center gap-2 mt-6 border border-[#c9a84c] text-[#c9a84c] text-xs font-outfit font-bold uppercase tracking-widest px-6 py-3 rounded-lg hover:bg-[rgba(201,168,76,0.1)] transition-all">
-                Contacter pour Startup Partner →
+              <a href="#contact" className="inline-flex items-center gap-2 mt-6 bg-[#c9a84c] text-[#030816] text-xs font-outfit font-bold uppercase tracking-widest px-6 py-3 rounded-lg hover:bg-[#e8c96a] transition-all">
+                Devenir Sponsor Officiel →
               </a>
             </div>
           </motion.div>
+
+          {/* Platinum / Gold / Silver */}
+          <div className="grid lg:grid-cols-3 gap-5">
+            <FormulaCard badge="Platinum" badgeColor="text-[#e8e8f0]" price="30 000" priceColor="text-[#c9a84c]" features={PLATINUM_FEATURES} ctaText="Devenir Platinum" ctaClass="bg-[rgba(201,168,76,0.12)] border border-[#c9a84c] text-[#c9a84c] hover:bg-[rgba(201,168,76,0.22)]" delay={0.05} />
+            <FormulaCard badge="Gold" badgeColor="text-[#c9a84c]" price="20 000" priceColor="text-[#f5e4a8]" features={GOLD_FEATURES} ctaText="Devenir Gold" ctaClass="border border-[#c9a84c] text-[#c9a84c] hover:bg-[rgba(201,168,76,0.1)]" delay={0.12} />
+            <FormulaCard badge="Silver" badgeColor="text-[#aab0be]" price="10 000" priceColor="text-[#aab0be]" features={SILVER_FEATURES} ctaText="Devenir Silver" ctaClass="border border-[#aab0be] text-[#aab0be] hover:bg-[rgba(170,176,190,0.08)]" delay={0.19} />
+          </div>
         </div>
       </section>
 
@@ -553,3 +547,4 @@ export default function SponsoringPage() {
     </main>
   );
 }
+
