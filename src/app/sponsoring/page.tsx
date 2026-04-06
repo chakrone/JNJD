@@ -152,29 +152,40 @@ function FormulaCard({
 }
 
 export default function SponsoringPage() {
-  const schools: { name: string; logo?: string }[] = [
-    { name: "INPT",                logo: "/logos ecoles/inpt.PNG" },
-    { name: "EMI",                 logo: "/logos ecoles/emi.png" },
-    { name: "ENSIAS",              logo: "/logos ecoles/ensias.jpg" },
-    { name: "INSEA",               logo: "/logos ecoles/insea.png" },
-    { name: "ENSEM",               logo: "/logos ecoles/ensem.png" },
-    { name: "EHTP",                logo: "/logos ecoles/ehtp.png" },
-    { name: "ENIM",                logo: "/logos ecoles/enim.png" },
-    { name: "ENSAM",               logo: "/logos ecoles/ensamr.png" },
-    { name: "ENSA" },
-    { name: "Al Akhawayn",         logo: "/logos ecoles/alakhawayn.png" },
-    { name: "FST" },
-    { name: "Facultés des Sciences" },
-    { name: "EMSI",                logo: "/logos ecoles/emsi.jpg" },
-    { name: "1337",                logo: "/logos ecoles/1337.png" },
-    { name: "ESTEM" },
-    { name: "IGA" },
-    { name: "Sup Telecom" },
-    { name: "SUPTEM" },
-    { name: "ESITH",               logo: "/logos ecoles/esith.jpg" },
-    { name: "ISNTTIC" },
+  const schools: { name: string; logo: string }[] = [
+    { name: "INPT",       logo: "/logos ecoles/inpt.PNG" },
+    { name: "EMI",        logo: "/logos ecoles/emi.png" },
+    { name: "ENSIAS",     logo: "/logos ecoles/ensias.jpg" },
+    { name: "INSEA",      logo: "/logos ecoles/insea.png" },
+    { name: "ENSEM",      logo: "/logos ecoles/ensem.png" },
+    { name: "EHTP",       logo: "/logos ecoles/ehtp.png" },
+    { name: "ENIM",       logo: "/logos ecoles/enim.png" },
+    { name: "ENSAM",      logo: "/logos ecoles/ensamr.png" },
+    { name: "ENSA",       logo: "/logos ecoles/ensa.svg" },
+    { name: "Al Akhawayn",logo: "/logos ecoles/alakhawayn.png" },
+    { name: "FST",        logo: "/logos ecoles/fst.png" },
+    { name: "EMSI",       logo: "/logos ecoles/emsi.jpg" },
+    { name: "1337",       logo: "/logos ecoles/1337.png" },
+    { name: "ESITH",      logo: "/logos ecoles/esith.jpg" },
   ];
-  const pastSponsors = ["SAFRAN", "CGI", "DXC Technology", "CDG", "ERICSSON", "La Marocaine Vie", "HP", "INWI", "ANRT", "Orange", "MCHAIN", "SNRT", "IT Road Group", "XHub", "Société Générale", "UBISOFT", "MACS", "Sekera", "Nucleon"];
+  const pastSponsors: { name: string; logo: string }[] = [
+    { name: "SAFRAN",           logo: "/logos sponsors/safran.png" },
+    { name: "DXC · CDG",        logo: "/logos sponsors/dxc cdg.png" },
+    { name: "ERICSSON",         logo: "/logos sponsors/ericsson.png" },
+    { name: "La Marocaine Vie", logo: "/logos sponsors/la marocaine vie.png" },
+    { name: "HP",               logo: "/logos sponsors/hp.png" },
+    { name: "INWI",             logo: "/logos sponsors/inwi.png" },
+    { name: "ANRT",             logo: "/logos sponsors/anrt.png" },
+    { name: "Orange",           logo: "/logos sponsors/orange.png" },
+    { name: "MCHAIN",          logo: "/logos sponsors/mchain.webp" },
+    { name: "SNRT",             logo: "/logos sponsors/snrt.png" },
+    { name: "IT Road Group",    logo: "/logos sponsors/it road.png" },
+    { name: "Société Générale", logo: "/logos sponsors/sg.png" },
+    { name: "UBISOFT",          logo: "/logos sponsors/ubisoft.svg" },
+    { name: "MACS",             logo: "/logos sponsors/macs.jpg" },
+    { name: "Sekera",           logo: "/logos sponsors/sekera.png" },
+    { name: "Nucleon",          logo: "/logos sponsors/nucleon.png" },
+  ];
 
   return (
     <main className="min-h-screen text-[#f4f0e8] bg-[#030816] overflow-x-hidden">
@@ -493,32 +504,25 @@ export default function SponsoringPage() {
             30+ institutions.<br /><span className="text-[#c9a84c]">500+ ingénieurs.</span>
           </motion.h2>
           <div className="w-14 h-0.5 bg-gradient-to-r from-[#c9a84c] to-transparent mt-5 mb-12"></div>
-          <motion.div {...FADE_DELAY(0.1)} className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
-            {schools.map((s) =>
-              s.logo ? (
-                <div
-                  key={s.name}
-                  className="flex items-center justify-center border border-[rgba(201,168,76,0.18)] bg-[#112b55] rounded-lg p-3 h-[72px] hover:border-[#c9a84c] hover:bg-[#162f5e] transition-all cursor-default"
-                  title={s.name}
-                >
+          {/* White pill container — mirrors the PDF dossier layout */}
+          <motion.div
+            {...FADE_DELAY(0.1)}
+            className="bg-white rounded-[2rem] px-10 py-8 shadow-[0_0_60px_rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.15)]"
+          >
+            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+              {schools.map((s) => (
+                <div key={s.name} title={s.name} className="flex items-center justify-center h-16">
                   <Image
                     src={s.logo}
                     alt={s.name}
-                    width={120}
-                    height={48}
-                    className="object-contain max-h-[48px] w-auto"
+                    width={140}
+                    height={64}
+                    className="object-contain max-h-16 w-auto"
                     unoptimized
                   />
                 </div>
-              ) : (
-                <span
-                  key={s.name}
-                  className="flex items-center justify-center text-xs font-semibold tracking-wide px-3 py-2 border border-[rgba(201,168,76,0.18)] text-[#8caede] bg-[#112b55] rounded-lg h-[72px] hover:border-[#c9a84c] hover:text-[#c9a84c] transition-all cursor-default text-center leading-tight"
-                >
-                  {s.name}
-                </span>
-              )
-            )}
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
@@ -533,12 +537,24 @@ export default function SponsoringPage() {
             Ils nous ont <span className="text-[#c9a84c]">fait confiance</span>
           </motion.h2>
           <motion.p {...FADE_DELAY(0.1)} className="text-[#8caede] mb-12">Des entreprises qui ont choisi la JNJD pour rencontrer les talents technologiques du Maroc.</motion.p>
-          <motion.div {...FADE_DELAY(0.15)} className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-px">
-            {pastSponsors.map((s) => (
-              <div key={s} className="border border-[rgba(201,168,76,0.18)] flex items-center justify-center text-center p-5 min-h-[72px] bg-[#07172e] text-xs font-bold tracking-normal text-[#8caede] hover:bg-[#112b55] hover:text-[#c9a84c] transition-all cursor-default">
-                {s}
-              </div>
-            ))}
+          <motion.div
+            {...FADE_DELAY(0.1)}
+            className="bg-white rounded-[2rem] px-10 py-8 shadow-[0_0_60px_rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.15)]"
+          >
+            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+              {pastSponsors.map((s) => (
+                <div key={s.name} title={s.name} className="flex items-center justify-center h-16">
+                  <Image
+                    src={s.logo}
+                    alt={s.name}
+                    width={140}
+                    height={64}
+                    className="object-contain max-h-16 w-auto"
+                    unoptimized
+                  />
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
