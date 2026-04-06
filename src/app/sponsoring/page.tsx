@@ -423,40 +423,51 @@ export default function SponsoringPage() {
           <motion.p {...FADE_DELAY(0.1)} className="text-[#8caede] mb-12 max-w-xl">Choisissez le niveau d&apos;engagement qui correspond à votre ambition.</motion.p>
 
           {/* Officiel Banner */}
-          <motion.div {...FADE_DELAY(0)} className="relative flex flex-col md:flex-row gap-8 items-start border-2 border-[#c9a84c] bg-gradient-to-br from-[#1a1408] via-[#1c2340] to-[#07172e] rounded-2xl overflow-hidden hover:shadow-[0_0_50px_rgba(201,168,76,0.2)] transition-all mb-6">
+          <motion.div
+            {...FADE_DELAY(0)}
+            className="relative flex flex-col border-2 border-[#c9a84c] bg-gradient-to-br from-[#1a1505] via-[#17213a] to-[#07172e] rounded-2xl overflow-hidden hover:shadow-[0_0_50px_rgba(201,168,76,0.2)] transition-all mb-6"
+          >
             {/* Top shimmer line */}
-            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#e8c96a] to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#e8c96a] to-transparent pointer-events-none" />
             {/* Corner glow */}
-            <div className="absolute top-0 left-0 w-40 h-40 bg-[radial-gradient(ellipse_at_top_left,rgba(201,168,76,0.12)_0%,transparent_70%)]" />
+            <div className="absolute top-0 left-0 w-64 h-64 bg-[radial-gradient(ellipse_at_top_left,rgba(201,168,76,0.08)_0%,transparent_65%)] pointer-events-none" />
 
-            {/* "Sponsor Officiel" label — full-width strip below the top line, never overlapping */}
-            <div className="w-full flex items-center justify-center gap-2 pt-5 pb-3 px-8 border-b border-[rgba(201,168,76,0.18)]">
-              <span className="text-[#c9a84c] text-[10px]">★</span>
-              <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#c9a84c]">Sponsor Officiel</span>
-              <span className="text-[#c9a84c] text-[10px]">★</span>
+            {/* ★ SPONSOR OFFICIEL ★ — full-width header strip */}
+            <div className="flex items-center justify-center gap-3 py-3 border-b border-[rgba(201,168,76,0.2)] bg-[rgba(201,168,76,0.04)]">
+              <span className="text-[#c9a84c] text-[9px] leading-none">★</span>
+              <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-[#c9a84c]">Sponsor Officiel</span>
+              <span className="text-[#c9a84c] text-[9px] leading-none">★</span>
             </div>
 
-            {/* Price + features row */}
-            <div className="flex flex-col md:flex-row gap-8 items-start w-full p-8 pt-6">
+            {/* Body: price left | divider | features right */}
+            <div className="flex flex-col md:flex-row gap-0">
               {/* Price column */}
-              <div className="text-center flex-shrink-0 min-w-[160px]">
-                <div className="flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#c9a84c] mb-3">
-                  <span className="w-2 h-2 rounded-full bg-[#c9a84c] shadow-[0_0_8px_#c9a84c]" />Officiel
+              <div className="flex flex-col items-center justify-center px-10 py-8 flex-shrink-0 min-w-[200px]">
+                <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#c9a84c] mb-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#c9a84c] shadow-[0_0_6px_#c9a84c]" />Officiel
                 </div>
-                <div className="font-outfit text-5xl font-extrabold text-[#c9a84c] leading-none drop-shadow-[0_0_24px_rgba(201,168,76,0.5)]">40 000</div>
-                <div className="text-xs font-semibold uppercase tracking-widest text-[#8caede] mt-1">DH</div>
+                <div className="font-outfit text-6xl font-extrabold text-[#c9a84c] leading-none drop-shadow-[0_0_24px_rgba(201,168,76,0.4)]">40 000</div>
+                <div className="text-sm font-semibold uppercase tracking-widest text-[#8caede] mt-2">DH</div>
               </div>
-              <div className="w-px self-stretch bg-[rgba(201,168,76,0.18)] hidden md:block" />
+
+              {/* Divider */}
+              <div className="w-px bg-[rgba(201,168,76,0.18)] self-stretch hidden md:block" />
+              <div className="h-px bg-[rgba(201,168,76,0.18)] md:hidden" />
+
               {/* Features + CTA */}
-              <div className="flex-1">
-                <div className="grid sm:grid-cols-2 gap-2.5">
+              <div className="flex-1 px-8 py-8">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2.5">
                   {OFFICIEL_FEATURES.map((f, i) => (
                     <div key={i} className="flex items-start gap-2 text-sm text-[#f4f0e8]">
-                      <span className="text-[#c9a84c] text-xs mt-0.5 flex-shrink-0">✦</span> {f.text}
+                      <span className="text-[#c9a84c] text-[10px] mt-1 flex-shrink-0">✦</span>
+                      <span className="leading-snug">{f.text}</span>
                     </div>
                   ))}
                 </div>
-                <a href="#contact" className="inline-flex items-center gap-2 mt-6 bg-gradient-to-r from-[#c9a84c] to-[#e8c96a] text-[#030816] text-xs font-outfit font-bold uppercase tracking-widest px-6 py-3 rounded-lg hover:from-[#e8c96a] hover:to-[#c9a84c] transition-all shadow-[0_0_20px_rgba(201,168,76,0.25)]">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 mt-6 bg-gradient-to-r from-[#c9a84c] to-[#e8c96a] text-[#030816] text-xs font-outfit font-bold uppercase tracking-widest px-6 py-3 rounded-lg hover:from-[#e8c96a] hover:to-[#c9a84c] transition-all shadow-[0_0_20px_rgba(201,168,76,0.2)]"
+                >
                   Devenir Sponsor Officiel →
                 </a>
               </div>
