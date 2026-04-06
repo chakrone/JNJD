@@ -572,10 +572,11 @@ export default function SponsoringPage() {
             Rejoignez la 20ème édition de la JNJD et positionnez votre organisation au cœur de l&apos;innovation technologique marocaine.
           </motion.p>
 
-          <div className="grid md:grid-cols-2 gap-5 mb-10">
+          <div className="grid md:grid-cols-3 gap-5 mb-10">
             {[
-              { role: "Président du Club", name: "Anas Chakrone", email: "chakrone.anas@gmail.com", phone: "+212 616-730025" },
-              { role: "Chef Sponsoring", name: "Nizar Benselloum", email: "benselloum.nizar@gmail.com", phone: "+212 642-457729" },
+              { role: "Président du Club",      name: "Anas Chakrone",    email: "chakrone.anas@gmail.com",    phone: "+212 616-730025" },
+              { role: "Responsable Sponsoring", name: "Nizar Benselloum", email: "benselloum.nizar@gmail.com", phone: "+212 642-457729" },
+              { role: "Responsable Sponsoring", name: "Douae Ghayati",    email: "douaeghayati3@gmail.com",    phone: "+212 678-981694" },
             ].map((c, i) => (
               <motion.div
                 key={c.name}
