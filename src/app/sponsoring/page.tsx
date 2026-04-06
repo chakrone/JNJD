@@ -152,7 +152,28 @@ function FormulaCard({
 }
 
 export default function SponsoringPage() {
-  const schools = ["INPT", "EMI", "ENSIAS", "INSEA", "ENSEM", "EHTP", "ENIM", "ENSAM", "ENSA", "Al Akhawayn", "FST", "Facultés des Sciences", "EMSI", "1337", "ESTEM", "IGA", "Sup Telecom", "SUPTEM", "ESITH", "ISNTTIC"];
+  const schools: { name: string; logo?: string }[] = [
+    { name: "INPT",                logo: "/logos ecoles/inpt.PNG" },
+    { name: "EMI",                 logo: "/logos ecoles/emi.png" },
+    { name: "ENSIAS",              logo: "/logos ecoles/ensias.jpg" },
+    { name: "INSEA",               logo: "/logos ecoles/insea.png" },
+    { name: "ENSEM",               logo: "/logos ecoles/ensem.png" },
+    { name: "EHTP",                logo: "/logos ecoles/ehtp.png" },
+    { name: "ENIM",                logo: "/logos ecoles/enim.png" },
+    { name: "ENSAM",               logo: "/logos ecoles/ensamr.png" },
+    { name: "ENSA" },
+    { name: "Al Akhawayn",         logo: "/logos ecoles/alakhawayn.png" },
+    { name: "FST" },
+    { name: "Facultés des Sciences" },
+    { name: "EMSI",                logo: "/logos ecoles/emsi.jpg" },
+    { name: "1337",                logo: "/logos ecoles/1337.png" },
+    { name: "ESTEM" },
+    { name: "IGA" },
+    { name: "Sup Telecom" },
+    { name: "SUPTEM" },
+    { name: "ESITH",               logo: "/logos ecoles/esith.jpg" },
+    { name: "ISNTTIC" },
+  ];
   const pastSponsors = ["SAFRAN", "CGI", "DXC Technology", "CDG", "ERICSSON", "La Marocaine Vie", "HP", "INWI", "ANRT", "Orange", "MCHAIN", "SNRT", "IT Road Group", "XHub", "Société Générale", "UBISOFT", "MACS", "Sekera", "Nucleon"];
 
   return (
@@ -399,33 +420,46 @@ export default function SponsoringPage() {
           <motion.h2 {...FADE_DELAY(0.05)} className="font-outfit text-4xl md:text-5xl font-extrabold tracking-tight mb-3">
             Formules de <span className="text-[#c9a84c]">Sponsoring</span>
           </motion.h2>
-          <motion.p {...FADE_DELAY(0.1)} className="text-[#8caede] mb-12 max-w-xl">Choisissez le niveau d'engagement qui correspond à votre ambition.</motion.p>
+          <motion.p {...FADE_DELAY(0.1)} className="text-[#8caede] mb-12 max-w-xl">Choisissez le niveau d&apos;engagement qui correspond à votre ambition.</motion.p>
 
           {/* Officiel Banner */}
-          <motion.div {...FADE_DELAY(0)} className="relative flex flex-col md:flex-row gap-8 items-center border-2 border-[#c9a84c] bg-gradient-to-br from-[#1c2a10] via-[#112b55] to-[#07172e] rounded-2xl p-8 mb-6 overflow-hidden hover:shadow-[0_0_40px_rgba(201,168,76,0.15)] transition-all">
-            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#c9a84c] via-[#e8c96a] to-[#c9a84c]" />
-            <div className="absolute top-4 right-5 bg-gradient-to-r from-[#c9a84c] to-[#e8c96a] text-[#030816] text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded shadow-lg flex items-center gap-1">
-              <span className="text-[12px] leading-none mb-[1px]">★</span> Sponsor Officiel
+          <motion.div {...FADE_DELAY(0)} className="relative flex flex-col md:flex-row gap-8 items-start border-2 border-[#c9a84c] bg-gradient-to-br from-[#1a1408] via-[#1c2340] to-[#07172e] rounded-2xl overflow-hidden hover:shadow-[0_0_50px_rgba(201,168,76,0.2)] transition-all mb-6">
+            {/* Top shimmer line */}
+            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#e8c96a] to-transparent" />
+            {/* Corner glow */}
+            <div className="absolute top-0 left-0 w-40 h-40 bg-[radial-gradient(ellipse_at_top_left,rgba(201,168,76,0.12)_0%,transparent_70%)]" />
+
+            {/* "Sponsor Officiel" label — full-width strip below the top line, never overlapping */}
+            <div className="w-full flex items-center justify-center gap-2 pt-5 pb-3 px-8 border-b border-[rgba(201,168,76,0.18)]">
+              <span className="text-[#c9a84c] text-[10px]">★</span>
+              <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#c9a84c]">Sponsor Officiel</span>
+              <span className="text-[#c9a84c] text-[10px]">★</span>
             </div>
-            <div className="text-center flex-shrink-0 min-w-[160px]">
-              <div className="flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#c9a84c] mb-3">
-                <span className="w-2 h-2 rounded-full bg-[#c9a84c] shadow-[0_0_8px_#c9a84c]" />Officiel
+
+            {/* Price + features row */}
+            <div className="flex flex-col md:flex-row gap-8 items-start w-full p-8 pt-6">
+              {/* Price column */}
+              <div className="text-center flex-shrink-0 min-w-[160px]">
+                <div className="flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#c9a84c] mb-3">
+                  <span className="w-2 h-2 rounded-full bg-[#c9a84c] shadow-[0_0_8px_#c9a84c]" />Officiel
+                </div>
+                <div className="font-outfit text-5xl font-extrabold text-[#c9a84c] leading-none drop-shadow-[0_0_24px_rgba(201,168,76,0.5)]">40 000</div>
+                <div className="text-xs font-semibold uppercase tracking-widest text-[#8caede] mt-1">DH</div>
               </div>
-              <div className="font-outfit text-5xl font-extrabold text-[#c9a84c] leading-none drop-shadow-[0_0_20px_rgba(201,168,76,0.4)]">40 000</div>
-              <div className="text-xs font-semibold uppercase tracking-widest text-[#8caede] mt-1">DH</div>
-            </div>
-            <div className="w-px self-stretch bg-[rgba(201,168,76,0.2)] hidden md:block" />
-            <div className="flex-1">
-              <div className="grid sm:grid-cols-2 gap-2.5">
-                {OFFICIEL_FEATURES.map((f, i) => (
-                  <div key={i} className="flex items-start gap-2 text-sm text-[#f4f0e8]">
-                    <span className="text-[#c9a84c] text-xs mt-0.5 flex-shrink-0">✦</span> {f.text}
-                  </div>
-                ))}
+              <div className="w-px self-stretch bg-[rgba(201,168,76,0.18)] hidden md:block" />
+              {/* Features + CTA */}
+              <div className="flex-1">
+                <div className="grid sm:grid-cols-2 gap-2.5">
+                  {OFFICIEL_FEATURES.map((f, i) => (
+                    <div key={i} className="flex items-start gap-2 text-sm text-[#f4f0e8]">
+                      <span className="text-[#c9a84c] text-xs mt-0.5 flex-shrink-0">✦</span> {f.text}
+                    </div>
+                  ))}
+                </div>
+                <a href="#contact" className="inline-flex items-center gap-2 mt-6 bg-gradient-to-r from-[#c9a84c] to-[#e8c96a] text-[#030816] text-xs font-outfit font-bold uppercase tracking-widest px-6 py-3 rounded-lg hover:from-[#e8c96a] hover:to-[#c9a84c] transition-all shadow-[0_0_20px_rgba(201,168,76,0.25)]">
+                  Devenir Sponsor Officiel →
+                </a>
               </div>
-              <a href="#contact" className="inline-flex items-center gap-2 mt-6 bg-[#c9a84c] text-[#030816] text-xs font-outfit font-bold uppercase tracking-widest px-6 py-3 rounded-lg hover:bg-[#e8c96a] transition-all">
-                Devenir Sponsor Officiel →
-              </a>
             </div>
           </motion.div>
 
@@ -448,12 +482,32 @@ export default function SponsoringPage() {
             30+ institutions.<br /><span className="text-[#c9a84c]">500+ ingénieurs.</span>
           </motion.h2>
           <div className="w-14 h-0.5 bg-gradient-to-r from-[#c9a84c] to-transparent mt-5 mb-12"></div>
-          <motion.div {...FADE_DELAY(0.1)} className="flex flex-wrap gap-2.5">
-            {schools.map((s) => (
-              <span key={s} className="text-xs font-semibold tracking-wide px-3.5 py-2 border border-[rgba(201,168,76,0.18)] text-[#8caede] bg-[#112b55] rounded hover:border-[#c9a84c] hover:text-[#c9a84c] transition-all cursor-default">
-                {s}
-              </span>
-            ))}
+          <motion.div {...FADE_DELAY(0.1)} className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
+            {schools.map((s) =>
+              s.logo ? (
+                <div
+                  key={s.name}
+                  className="flex items-center justify-center border border-[rgba(201,168,76,0.18)] bg-[#112b55] rounded-lg p-3 h-[72px] hover:border-[#c9a84c] hover:bg-[#162f5e] transition-all cursor-default"
+                  title={s.name}
+                >
+                  <Image
+                    src={s.logo}
+                    alt={s.name}
+                    width={120}
+                    height={48}
+                    className="object-contain max-h-[48px] w-auto"
+                    unoptimized
+                  />
+                </div>
+              ) : (
+                <span
+                  key={s.name}
+                  className="flex items-center justify-center text-xs font-semibold tracking-wide px-3 py-2 border border-[rgba(201,168,76,0.18)] text-[#8caede] bg-[#112b55] rounded-lg h-[72px] hover:border-[#c9a84c] hover:text-[#c9a84c] transition-all cursor-default text-center leading-tight"
+                >
+                  {s.name}
+                </span>
+              )
+            )}
           </motion.div>
         </div>
       </section>
